@@ -1,0 +1,175 @@
+{
+  "systems": [
+    "nemo",
+    "fp16",
+    "shipped_6bit"
+  ],
+  "summary": {
+    "lsc": {
+      "nemo": {
+        "n": 9,
+        "wer_truth_mean": 0.1398063007243798,
+        "wer_truth_median": 0.11904761904761904,
+        "wer_vs_nemo_mean": null
+      },
+      "fp16": {
+        "n": 9,
+        "wer_truth_mean": 0.14210145301953211,
+        "wer_truth_median": 0.11904761904761904,
+        "wer_vs_nemo_mean": 0.004609085257358458
+      },
+      "shipped_6bit": {
+        "n": 9,
+        "wer_truth_mean": 0.1449713830787277,
+        "wer_truth_median": 0.11904761904761904,
+        "wer_vs_nemo_mean": 0.018120574665511154
+      }
+    }
+  },
+  "per_clip": [
+    {
+      "dataset": "lsc",
+      "clip": "lsc1.wav",
+      "dur_s": 36.1,
+      "gt_words": 81,
+      "nemo_wer_truth": 0.2222222222222222,
+      "fp16_wer_truth": 0.2222222222222222,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.2222222222222222,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "I met with doctor Aaron Marita at four hundred fifteen Mission Street in San Francisco. I showed him the Eloquis v. Warfarin comparison deck presentation. We then discussed Talzena, and he believes that Talzena Demonstrated significant improvement in progression-free survival for BRC amutated breast cancer. He had a positive reaction. We also discussed Paxlovid, and I told him that Paxlovid oral treatment reduced hospital. Hospitalization or death by 89% in high-risk patients with COVID-19.",
+        "fp16": "I met with doctor Aaron Marita at four hundred fifteen Mission Street in San Francisco. I showed him the Eloquis v. Warfarin comparison deck presentation. We then discussed Talzena, and he believes that Talzena Demonstrated significant improvement in progression-free survival for BRC amutated breast cancer. He had a positive reaction. We also discussed Paxlovid, and I told him that Paxlovid oral treatment reduced hospital. Hospitalization or death by 89% in high-risk patients with COVID-19.",
+        "shipped_6bit": "I met with doctor Aaron Marita at four hundred fifteen Mission Street in San Francisco. I showed him the Eloquis v. Warfarin comparison deck presentation. We then discussed Talzena, and he believes that Talzena Demonstrated significant improvement in progression-free survival for BRC amutated breast cancer. He had a positive reaction. We also discussed Paxlovid, and I told him that Paxlovid oral treatment reduced hospital. Hospitalization or death by 89% in high-risk patients with COVID-19."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc2.wav",
+      "dur_s": 33.0,
+      "gt_words": 74,
+      "nemo_wer_truth": 0.22972972972972974,
+      "fp16_wer_truth": 0.24324324324324326,
+      "fp16_wer_vs_nemo": 0.0273972602739726,
+      "shipped_6bit_wer_truth": 0.22972972972972974,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "I met with Dr. Ashok Kumar at 50 Mission Street. We discussed Zeljens, and I told him that Zeljens X, our extended release offers convenient once-daily dosing compared to twice-daily immediate release. He was positive about it. About this. I then showed him the LICA-CR Pain Management Guide presentation, and we discussed LICA. I explained that LICA-C, our controlled release, improves sleep quality in patients with chronic neuropathic pain.",
+        "fp16": "I met with Dr. Ashok Kumar at 50 Mission Street. We discussed Zeljin's, and I told him that Zeljens X, our extended release offers convenient once-daily dosing compared to twice-daily immediate release. He was positive about it. About this. I then showed him the LICA-CR Pain Management Guide presentation, and we discussed LICA. I explained that LICA-C, our controlled release, improves sleep quality in patients with chronic neuropathic pain.",
+        "shipped_6bit": "I met with Dr. Ashok Kumar at 50 Mission Street. We discussed Zeljens and I told him that Zeljens X, our extended release offers convenient once daily dosing compared to twice daily immediate release. He was positive about it. About this. I then showed him the LICA-CR pain management guide presentation, and we discussed LICA. I explained that LICA-C, our controlled release, improves sleep quality in patients with chronic neuropathic pain."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc3.wav",
+      "dur_s": 33.2,
+      "gt_words": 75,
+      "nemo_wer_truth": 0.09333333333333334,
+      "fp16_wer_truth": 0.09333333333333334,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.09333333333333334,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "detailed immunexis and the seventy two per cent. reduction in inflammatory markers. doctor Morita's reaction was neutral. He acknowledged the data, but indicated he needs to see how this translates to long term radiographic outcomes Before shifting his volume, we then discussed Lipital long track record and surveillance history. His reaction was neutral here as well, stating that while he trusts the brand, he is increasingly required by payers to utilize. generics for non-complex cases.",
+        "fp16": "detailed immunexis and the seventy two per cent. reduction in inflammatory markers. doctor Morita's reaction was neutral. He acknowledged the data, but indicated he needs to see how this translates to long term radiographic outcomes Before shifting his volume, we then discussed Lipital long track record and surveillance history. His reaction was neutral here as well, stating that while he trusts the brand, he is increasingly required by payers to utilize. generics for non-complex cases.",
+        "shipped_6bit": "detailed immunexis and the seventy two per cent. reduction in inflammatory markers. doctor Morita's reaction was neutral. He acknowledged the data, but indicated he needs to see how this translates to long term radiographic outcomes Before shifting his volume, we then discussed Lipital, long track record, and surveillance history. His reaction was neutral here as well, stating that while he trusts the brand, he is increasingly required by payers to utilize. generics for non-complex cases."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc4.wav",
+      "dur_s": 42.1,
+      "gt_words": 84,
+      "nemo_wer_truth": 0.11904761904761904,
+      "fp16_wer_truth": 0.11904761904761904,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.11904761904761904,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "met with Morita to day. We led with Codham specifically the clinical data showing a sixty five per cent symptom reduction in moderate to severe arthritis. Morita was very impressed with the depth of the reduction and mentioned He has several patients who are currently plateauing on their current biologics. We then reviewed Eloquis' usage, specifically the 2.5 milligrams BID reduction criteria: age, weight, creatinine. He confirmed his clinic is strictly following these parameters and appreciates the safety guardrails. Marked his sentiment as highly favourable for both.",
+        "fp16": "met with Morita to day. We led with Codham specifically the clinical data showing a sixty five per cent symptom reduction in moderate to severe arthritis. Morita was very impressed with the depth of the reduction and mentioned He has several patients who are currently plateauing on their current biologics. We then reviewed Eloquis' usage, specifically the 2.5 milligrams BID reduction criteria: age, weight, creatinine. He confirmed his clinic is strictly following these parameters and appreciates the safety guardrails. Marked his sentiment as highly favourable for both.",
+        "shipped_6bit": "met with Morita to day. We led with Codham specifically the clinical data showing a sixty five per cent. symptom reduction in moderate to severe arthritis. Morita was very impressed with the depth of the reduction and mentioned He has several patients who are currently plateauing on their current biologics. We then reviewed Eloquis usage, specifically the 2.5 milligrams BID reduction criteria, age, weight, creatinine. He confirmed his clinic is strictly following these parameters and appreciates the safety guardrails. Marked his sentiment as highly favourable for both."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc5.wav",
+      "dur_s": 37.4,
+      "gt_words": 77,
+      "nemo_wer_truth": 0.12987012987012986,
+      "fp16_wer_truth": 0.12987012987012986,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.12987012987012986,
+      "shipped_6bit_wer_vs_nemo": 0.012987012987012988,
+      "_texts": {
+        "nemo": "I met with Dr. Ashok Kumar at fifty Mission Street in San Francisco. We discussed Enlida and I told him that Enlida is approved in combination with Pembelizumab or Avelliumab for first line RCC treatment. He was positive about this. I then showed him the Cominity MRN technology overview presentation and discussed Cominity. I explained that Cominity COVID vaccine uses MRNA Technology to instruct cells to produce spike protein for immune response. He had a positive reaction.",
+        "fp16": "I met with Dr. Ashok Kumar at fifty Mission Street in San Francisco. We discussed Enlida and I told him that Enlida is approved in combination with Pembelizumab or Avelliumab for first line RCC treatment. He was positive about this. I then showed him the Cominity MRN technology overview presentation and discussed Cominity. I explained that Cominity COVID vaccine uses MRNA Technology to instruct cells to produce spike protein for immune response. He had a positive reaction.",
+        "shipped_6bit": "I met with Dr. Ashok Kumar at fifty Mission Street in San Francisco. We discussed Enlida and I told him that Enlida is approved in combination with Pembelizimab or Avelliumab for first line RCC treatment. He was positive about this. I then showed him the Cominity MRN technology overview presentation and discussed Cominity. I explained that Cominity COVID vaccine uses MRNA Technology to instruct cells to produce spike protein for immune response. He had a positive reaction."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc6.wav",
+      "dur_s": 53.9,
+      "gt_words": 112,
+      "nemo_wer_truth": 0.08035714285714286,
+      "fp16_wer_truth": 0.08035714285714286,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.08928571428571429,
+      "shipped_6bit_wer_vs_nemo": 0.03508771929824561,
+      "_texts": {
+        "nemo": "Focused CML discussion with Dr. Morita at 50 Fremont Street in San Francisco. Dedicated the full call to Biliff. Started with efficacy the durable cytogenetic and molecular responses in C. Patients. Morita has three patients currently on Bulef and is pleased with the response durability. One of his patients achieved a major molecular response at 12 months. He considers it a strong second-line. Option after a matinib intolerance, then reviewed the safety profile manageable G-events as the most common side effect. Morita confirmed his experience Align's initial nausea and diarrhea that typically resolved. In the first few weeks. His patients typically adjust and continue therapy without dose modifications. No new concerns.",
+        "fp16": "Focused CML discussion with Dr. Morita at 50 Fremont Street in San Francisco. Dedicated the full call to Biliff. Started with efficacy the durable cytogenetic and molecular responses in C. Patients. Morita has three patients currently on Bulef and is pleased with the response durability. One of his patients achieved a major molecular response at 12 months. He considers it a strong second-line. Option after a matinib intolerance, then reviewed the safety profile manageable G-events as the most common side effect. Morita confirmed his experience Align's initial nausea and diarrhea that typically resolved. In the first few weeks. His patients typically adjust and continue therapy without dose modifications. No new concerns.",
+        "shipped_6bit": "Focused CML discussion with doctor Morita at 50 Fremont Street in San Francisco. Dedicated the full call to Billiff. Started with efficacy: the durable cytogenetic and molecular responses in CML. Patients. Morita has three patients currently on Bulef and is pleased with the response durability. One of his patients achieved a major molecular response at 12 months. He considers it a strong second life. Option after a Matinib intolerance, then reviewed the safety profile manageable G-events as the most common side effect. Morita confirmed his experience Align's initial nausea and diarrhea that typically resolved. In the first few weeks. His patients typically adjust and continue therapy without dose modifications. No new concerns."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc7.wav",
+      "dur_s": 61.0,
+      "gt_words": 126,
+      "nemo_wer_truth": 0.19047619047619047,
+      "fp16_wer_truth": 0.19047619047619047,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.2222222222222222,
+      "shipped_6bit_wer_vs_nemo": 0.0703125,
+      "_texts": {
+        "nemo": "Oncology focused visit with Dr. Sinha at 50 Mission Street, led with Talzena, discussed the significant PFS improvement in BRCA mutated breast cancer. Sinha has a growing number of Of B RCA-positive patients thanks to increased genetic testing at his center. He called Talzena a well-tolerated option compared to Alapib and is using it as his first-line PARP in history. I pulled up the IBANTS efficacy overview deck to show the broader breast cancer pipeline. CINAH reviewed it and found it helpful for framing Talsana within the portfolio, then discussed Enlida and the first line are CC. C combination with pembolizumab or avelumab, Sinha has started to patients on Exitinib Pembo this quarter and is monitoring responses closely. He asked about sequencing after IOTK. failure.",
+        "fp16": "Oncology focused visit with Dr. Sinha at 50 Mission Street, led with Talzena, discussed the significant PFS improvement in BRCA mutated breast cancer. Sinha has a growing number of Of B RCA-positive patients thanks to increased genetic testing at his center. He called Talzena a well-tolerated option compared to Alapib and is using it as his first-line PARP in history. I pulled up the IBANTS efficacy overview deck to show the broader breast cancer pipeline. CINAH reviewed it and found it helpful for framing Talsana within the portfolio, then discussed Enlida and the first line are CC. C combination with pembolizumab or avelumab, Sinha has started to patients on Exitinib Pembo this quarter and is monitoring responses closely. He asked about sequencing after IOTK. failure.",
+        "shipped_6bit": "Oncology focused visit with Dr. Sinha at fifty Mission Street, led with Talzena discussed the significant PFS improvement in BRCA mutated breast cancer. Sinha has a growing number of Of B are CA positive patients thanks to increased genetic testing at his center. He called Talzena a well-tolerated option compared to Alapib and is using it as his first-line PARP in history. I pulled up the IBANTS efficacy overview deck to show the broader breast cancer pipeline, CINAHA reviewed it, and found it helpful for framing Talzana within the portfolio, then discussed in Leida and the first line are CC. C combination with Pembelizumab or Avellumab, Sinha has started to patients on Exitinib Pembo this quarter and is monitoring responses closely. He asked about sequencing after IOTK. failure."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc8.wav",
+      "dur_s": 74.3,
+      "gt_words": 140,
+      "nemo_wer_truth": 0.1,
+      "fp16_wer_truth": 0.10714285714285714,
+      "fp16_wer_vs_nemo": 0.014084507042253521,
+      "shipped_6bit_wer_truth": 0.11428571428571428,
+      "shipped_6bit_wer_vs_nemo": 0.028169014084507043,
+      "_texts": {
+        "nemo": "Multi indication visit with Marita at fifty Fremont Street Started with Extandi, the statistically significant reduction in death risk or radiographic progression in metastatic castration resistant prostate cancer. Cancer. Marita manages a sizable MCRPC population and said Extandi remains his preferred androgen receptor inhibitor. He's seen durable responses and his patients tolerate it well. Then pivoted to Beolif, the durable cytogenetic and molecular responses in CML. Morita has been expanding his CML experience and now manages for patients on TKI therapy. He considers Biolif a strong option, especially for patients intolerant to first-generation TKIS. Finally, discuss liftensity in the second line CMV setting for patients who have failed initial therapy. Morita recognized the unmet need and described a recent renal transplant patient who failed Valgancyclova. He was receptive to the two leaders' CMV positioning and asked for the data package.",
+        "fp16": "Multi indication visit with Marita at fifty Fremont Street Started with Extandi, the statistically significant reduction in death risk or radiographic progression in metastatic castration resistant prostate cancer. Cancer. Marita manages a sizable MCRPC population and said Extandi remains his preferred androgen receptor inhibitor. He's seen durable responses and his patients tolerate it well. Then pivoted to Beolif, the durable cytogenetic and molecular responses in CML. Morita has been expanding his CML experience and now manages for patients on TKI therapy. He considers Biolif a strong option, especially for patients intolerant to first-generation TKIS. Finally, discuss live tensity in the second line CMV setting for patients who have failed initial therapy. Morita recognized the unmet need and described a recent renal transplant patient who failed Valgancyclova. He was receptive to the two leaders' CMV positioning and asked for the data package.",
+        "shipped_6bit": "Multi indication visit with Marita at fifty Fremont Street Started with Extandi, the statistically significant reduction in death risk or radiographic progression in metastatic castration resistant prostate cancer. Cancer. Marita manages a sizable MCRPC population and said Extandi remains his preferred androgen receptor inhibitor. He's seen durable responses and his patients tolerate it well. Well, then pivoted to biolif, the durable cytogenetic and molecular responses in CML. Morita has been expanding his CML experience and now manages for patients on TKI therapy. He considers Biolif a strong option, especially for patients intolerant to first generation TKIS. Finally, discuss live tensity in the second line CMV setting for patients who have failed initial therapy. Morita recognized the unmet need and described a recent renal transplant patient who failed Valgancyclova. He was receptive to the two leaders' CMV positioning and asked for the data package."
+      }
+    },
+    {
+      "dataset": "lsc",
+      "clip": "lsc9.wav",
+      "dur_s": 62.8,
+      "gt_words": 118,
+      "nemo_wer_truth": 0.09322033898305085,
+      "fp16_wer_truth": 0.09322033898305085,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.0847457627118644,
+      "shipped_6bit_wer_vs_nemo": 0.01652892561983471,
+      "_texts": {
+        "nemo": "RCC portfolio discussion with Sinha at fifty Mission Street. Focused on the two TKI options led within LIDA and the Superior PFS data in Advanced RCC. Sinha has been an early adopter and has seen favorable responses across his patient cohort. He appreciates having a potent second line TK option and said the PFS data reinforces his confidence. Then move to SUTENT and the PFS improvement across both our CC and GIST indications. Sinha uses SUTENT primarily in the first-line setting for patients who. Who aren't candidates for IOT-K eye combinations? He finds the dual indication useful when patients have concurrent RCC and GIST considerations, though rare. He views it as an important. option in his sequencing strategy.",
+        "fp16": "RCC portfolio discussion with Sinha at fifty Mission Street. Focused on the two TKI options led within LIDA and the Superior PFS data in Advanced RCC. Sinha has been an early adopter and has seen favorable responses across his patient cohort. He appreciates having a potent second line TK option and said the PFS data reinforces his confidence. Then move to SUTENT and the PFS improvement across both our CC and GIST indications. Sinha uses SUTENT primarily in the first-line setting for patients who. Who aren't candidates for IOT-K eye combinations? He finds the dual indication useful when patients have concurrent RCC and GIST considerations, though rare. He views it as an important. option in his sequencing strategy.",
+        "shipped_6bit": "RCC portfolio discussion with Sinha at fifty Mission Street. Focused on the two TKI options led within LIDA and the Superior PFS data in Advanced RCC. Sinha has been an early adopter and has seen favorable responses across his patient cohort. He appreciates having a potent second line TK option and said the PFS data reinforces his confidence. Then move to SUTENT and the PFS improvement across both our CC and GIST indications. Sinha uses SUTENT primarily in the first-line setting for patients who Who aren't candidates for IOTK eye combinations? He finds the dual indication useful when patients have concurrent RCC and GIST considerations, though rare. He views it as an important. option in his sequencing strategy."
+      }
+    }
+  ]
+}

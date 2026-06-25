@@ -1,0 +1,25 @@
+.venv/
+.build/
+__pycache__/
+*.pyc
+compiled/
+mlpackages/
+parakeet_coreml/
+parakeet_coreml_quantized/
+parakeet_coreml_v2_fp32/
+parakeet_coreml_v2_fp16/
+parakeet_coreml_v2_int8/
+parakeet_coreml_v2_palett4/
+parakeet_coreml_v2_palett6/
+parakeet_coreml_v2_palett8/
+parakeet_coreml_local_coremltools_fixed_encoder/
+parakeet_coreml_local_coremltools_quantized/
+# Assembled runtime models — exceed GitHub's 100MB/file limit; regenerate via the
+# 4-step recipe in README.md (convert FP16 -> compress INT8 -> compile -> add vocab).
+parakeet_coreml_v2_final/
+.DS_Store
+parakeet-transcribe/.build/
+parakeet-transcribe/.swiftpm/
+# Bundled CoreML models staged into the iOS app (~585MB); staged by scripts/stage-models.sh
+ParakeetTranscribeApp/Resources/Models/
+ParakeetTranscribeApp/DerivedData/

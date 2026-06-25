@@ -1,0 +1,63 @@
+{
+  "summary": {
+    "dataset": "librispeech-test-clean",
+    "n": 5,
+    "nemo_wer_truth": 0.0,
+    "builds": {
+      "final": {
+        "wer_truth": 0.0,
+        "wer_truth_median": 0.0,
+        "drift_nemo": 0.0,
+        "exact_match": 1.0
+      },
+      "shipped_6bit": {
+        "wer_truth": 0.0,
+        "wer_truth_median": 0.0,
+        "drift_nemo": 0.0,
+        "exact_match": 1.0
+      }
+    }
+  },
+  "per_clip": [
+    {
+      "clip": "1089-134686-0000",
+      "dur_s": 10.4,
+      "final_wt": 0.0,
+      "final_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "1089-134686-0001",
+      "dur_s": 3.3,
+      "final_wt": 0.0,
+      "final_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "1089-134686-0002",
+      "dur_s": 6.6,
+      "final_wt": 0.0,
+      "final_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "1089-134686-0003",
+      "dur_s": 2.7,
+      "final_wt": 0.0,
+      "final_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "1089-134686-0004",
+      "dur_s": 5.2,
+      "final_wt": 0.0,
+      "final_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    }
+  ]
+}

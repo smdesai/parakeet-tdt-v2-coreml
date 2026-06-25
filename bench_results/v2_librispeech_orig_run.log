@@ -1,0 +1,88 @@
+loading nemo…
+[NeMo I 2026-06-19 18:51:55 mixins:181] Tokenizer SentencePieceTokenizer initialized with 1024 tokens
+[NeMo W 2026-06-19 18:51:56 modelPT:180] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    use_lhotse: true
+    skip_missing_manifest_entries: true
+    input_cfg: null
+    tarred_audio_filepaths: null
+    manifest_filepath: null
+    sample_rate: 16000
+    shuffle: true
+    num_workers: 2
+    pin_memory: true
+    max_duration: 40.0
+    min_duration: 0.1
+    text_field: answer
+    batch_duration: null
+    use_bucketing: true
+    bucket_duration_bins: null
+    bucket_batch_size: null
+    num_buckets: 30
+    bucket_buffer_size: 20000
+    shuffle_buffer_size: 10000
+    
+[NeMo W 2026-06-19 18:51:56 modelPT:187] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    use_lhotse: true
+    manifest_filepath: null
+    sample_rate: 16000
+    batch_size: 16
+    shuffle: false
+    max_duration: 40.0
+    min_duration: 0.1
+    num_workers: 2
+    pin_memory: true
+    text_field: answer
+    
+[NeMo I 2026-06-19 18:51:56 features:305] PADDING: 0
+[NeMo I 2026-06-19 18:51:57 rnnt_models:226] Using RNNT Loss : tdt
+    Loss tdt_kwargs: {'fastemit_lambda': 0.0, 'clamp': -1.0, 'durations': [0, 1, 2, 3, 4], 'sigma': 0.02, 'omega': 0.1}
+[NeMo I 2026-06-19 18:51:57 rnnt_models:226] Using RNNT Loss : tdt
+    Loss tdt_kwargs: {'fastemit_lambda': 0.0, 'clamp': -1.0, 'durations': [0, 1, 2, 3, 4], 'sigma': 0.02, 'omega': 0.1}
+[NeMo W 2026-06-19 18:51:57 tdt_loop_labels_computer:300] No conditional node support for Cuda.
+    Cuda graphs with while loops are disabled, decoding speed will be slower
+    Reason: CUDA is not available
+[NeMo I 2026-06-19 18:51:57 rnnt_models:226] Using RNNT Loss : tdt
+    Loss tdt_kwargs: {'fastemit_lambda': 0.0, 'clamp': -1.0, 'durations': [0, 1, 2, 3, 4], 'sigma': 0.02, 'omega': 0.1}
+[NeMo W 2026-06-19 18:51:57 tdt_loop_labels_computer:300] No conditional node support for Cuda.
+    Cuda graphs with while loops are disabled, decoding speed will be slower
+    Reason: CUDA is not available
+[NeMo I 2026-06-19 18:51:58 save_restore_connector:275] Model EncDecRNNTBPEModel was successfully restored from /Users/sdesai/Downloads/parakeet-tdt-0.6b-v2.nemo.
+LibriSpeech test-clean: 2620 utterances
+processing 2620 (offset=0)
+  [100/2620] nemo=0.0363  final=0.0372  shipped_6bit_orig=0.0287
+  [200/2620] nemo=0.0284  final=0.0309  shipped_6bit_orig=0.0219
+  [300/2620] nemo=0.0227  final=0.0244  shipped_6bit_orig=0.0192
+  [400/2620] nemo=0.0216  final=0.0230  shipped_6bit_orig=0.0192
+  [500/2620] nemo=0.0216  final=0.0223  shipped_6bit_orig=0.0200
+  [600/2620] nemo=0.0237  final=0.0243  shipped_6bit_orig=0.0222
+  [700/2620] nemo=0.0226  final=0.0232  shipped_6bit_orig=0.0215
+  [800/2620] nemo=0.0213  final=0.0218  shipped_6bit_orig=0.0206
+  [900/2620] nemo=0.0203  final=0.0207  shipped_6bit_orig=0.0197
+  [1000/2620] nemo=0.0207  final=0.0211  shipped_6bit_orig=0.0200
+  [1100/2620] nemo=0.0215  final=0.0219  shipped_6bit_orig=0.0210
+  [1200/2620] nemo=0.0209  final=0.0212  shipped_6bit_orig=0.0204
+  [1300/2620] nemo=0.0207  final=0.0211  shipped_6bit_orig=0.0198
+  [1400/2620] nemo=0.0220  final=0.0223  shipped_6bit_orig=0.0213
+  [1500/2620] nemo=0.0218  final=0.0220  shipped_6bit_orig=0.0211
+  [1600/2620] nemo=0.0221  final=0.0222  shipped_6bit_orig=0.0215
+  [1700/2620] nemo=0.0215  final=0.0217  shipped_6bit_orig=0.0210
+  [1800/2620] nemo=0.0222  final=0.0223  shipped_6bit_orig=0.0218
+  [1900/2620] nemo=0.0221  final=0.0222  shipped_6bit_orig=0.0217
+  [2000/2620] nemo=0.0219  final=0.0220  shipped_6bit_orig=0.0217
+  [2100/2620] nemo=0.0220  final=0.0221  shipped_6bit_orig=0.0219
+  [2200/2620] nemo=0.0221  final=0.0221  shipped_6bit_orig=0.0220
+  [2300/2620] nemo=0.0227  final=0.0229  shipped_6bit_orig=0.0226
+  [2400/2620] nemo=0.0227  final=0.0229  shipped_6bit_orig=0.0227
+  [2500/2620] nemo=0.0232  final=0.0235  shipped_6bit_orig=0.0232
+  [2600/2620] nemo=0.0238  final=0.0242  shipped_6bit_orig=0.0238
+
+=== SUMMARY  LibriSpeech test-clean  n=2620 ===
+  nemo            WER_truth=0.0237
+  build           WER_truth  WER_med  drift_NeMo  exact%
+  final              0.0241   0.0000      0.0014    99%
+  shipped_6bit_orig     0.0238   0.0000      0.0051    94%
+
+wrote ./bench_results/v2_librispeech_final_vs_orig.json
+E5RT encountered an STL exception. msg = Failed to PropagateInputTensorShapes: std::runtime_error during type inference for ios17.slice_by_index: zero shape error.E5RT encountered an STL exception. msg = Failed to PropagateInputTensorShapes: std::runtime_error during type inference for ios17.slice_by_index: zero shape error.E5RT encountered an STL exception. msg = Failed to PropagateInputTensorShapes: std::runtime_error during type inference for ios17.slice_by_index: zero shape error.

@@ -1,0 +1,137 @@
+{
+  "op_type_totals" : {
+    "grand_gflop" : 0,
+    "grand_gbps" : 0,
+    "grand_weight_mb" : 0,
+    "grand_runtime_ms" : 0
+  },
+  "cpu_op_types" : {
+    "ios17.sub" : 4,
+    "ios17.conv" : 2,
+    "ios17.less" : 1,
+    "ios17.sqrt" : 1,
+    "ios17.concat" : 3,
+    "ios17.reshape" : 2,
+    "ios17.mul" : 1,
+    "ios16.reduce_sum" : 4,
+    "ios17.matmul" : 1,
+    "pad" : 1,
+    "tile" : 2,
+    "ios17.slice_by_index" : 3,
+    "shape" : 3,
+    "ios17.add" : 4,
+    "range_1d" : 2,
+    "ios17.expand_dims" : 10,
+    "select" : 3,
+    "identity" : 1,
+    "ios17.greater_equal" : 1,
+    "ios17.real_div" : 4,
+    "stack" : 1,
+    "ios17.gather" : 3,
+    "ios17.floor_div" : 1,
+    "ios17.log" : 1,
+    "ios17.cast" : 7,
+    "ios17.pow" : 2
+  },
+  "fallback_ops" : [
+
+  ],
+  "version" : "0.4.1",
+  "top_operations" : [
+
+  ],
+  "unsupported_reasons_by_type" : {
+
+  },
+  "tool" : "anemll-profile",
+  "measured_prediction" : {
+    "status" : "not_run",
+    "iter_per_sec" : 0,
+    "tops" : 0,
+    "runs" : 0,
+    "weight_bw_gbps" : 0,
+    "steady_ms" : 0,
+    "average_ms" : 0,
+    "speedup_vs_sequential" : 0,
+    "gflops_per_sec" : 0
+  },
+  "summary" : {
+    "unique_costmodel_ops" : 0,
+    "gpu_cost" : 0,
+    "grand_runtime_ms" : 0,
+    "ane_ops" : 0,
+    "ane_cost" : 0,
+    "gpu_ops" : 0,
+    "grand_gflop" : 0,
+    "total_cost" : 0,
+    "cpu_ops" : 68,
+    "total_ops" : 164,
+    "const_ops" : 164,
+    "cpu_cost" : 0,
+    "costmodel_entries" : 0
+  },
+  "compute" : {
+    "mode" : "CPU+ANE",
+    "interrupt_boundary_ms" : 300,
+    "compute_units_all" : 0
+  },
+  "graph_interruptions" : {
+    "interrupted_ops" : 0,
+    "total_non_focus_ops" : 0,
+    "interrupted_soft_ops" : 0,
+    "edge_runs_ignored" : 0,
+    "interrupted_hard_ops" : 0,
+    "focus_device" : "ANE",
+    "interrupted_missing_runtime_ops" : 0,
+    "edge_runs" : [
+
+    ],
+    "interrupted_cost" : 0,
+    "interruptions" : [
+
+    ],
+    "total_non_focus_cost" : 0,
+    "estimated_switch_tax_ms" : 0,
+    "graph_interruptions" : 0,
+    "estimated_island_time_ms" : 0,
+    "estimated_total_tax_ms" : 0,
+    "best_case_savings_ms" : 0,
+    "timeline_by_function" : [
+      {
+        "function" : "main",
+        "segments" : [
+
+        ]
+      }
+    ],
+    "non_focus_runs" : 0
+  },
+  "conv_detail" : [
+
+  ],
+  "ordered_placements" : [
+
+  ],
+  "op_type_breakdown" : [
+
+  ],
+  "high_cost_ops" : [
+
+  ],
+  "model" : {
+    "format" : "ML Program",
+    "input_path" : "parakeet_coreml_v2_int8\/parakeet_preprocessor.mlpackage",
+    "size_mb" : 0.59373664855957031,
+    "size_bytes" : 622578,
+    "display_name" : "parakeet_preprocessor.mlpackage",
+    "compiled_from_package" : true,
+    "compiled_model_path" : "\/var\/folders\/xf\/q_0j2cbd065fnd6wn8k15vxm0000gn\/T\/parakeet_preprocessor.mlmodelc"
+  },
+  "status" : {
+    "log_data_masked" : false,
+    "no_costmodel_entries" : true
+  },
+  "ane_op_types" : {
+
+  }
+}

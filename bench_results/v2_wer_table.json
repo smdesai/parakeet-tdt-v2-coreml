@@ -1,0 +1,35 @@
+{
+  "audio": "./audio/yc_first_minute_16k_15s.wav",
+  "reference": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear, tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that purpose.",
+  "rows": [
+    {
+      "variant": "NeMo PyTorch (reference)",
+      "precision": "FP32 (torch)",
+      "encoder_rel_l2": 0.0,
+      "transcription": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear, tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that purpose.",
+      "wer_vs_ref": 0.0,
+      "swap_decode_text": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear, tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that purpose."
+    },
+    {
+      "variant": "New CoreML FP32",
+      "precision": "FLOAT32",
+      "encoder_rel_l2": 1.3313169802131597e-05,
+      "transcription": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear, tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that purpose.",
+      "wer_vs_ref": 0.0
+    },
+    {
+      "variant": "New CoreML FP16",
+      "precision": "FLOAT16",
+      "encoder_rel_l2": 0.013051335699856281,
+      "transcription": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear, tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that purpose.",
+      "wer_vs_ref": 0.0
+    },
+    {
+      "variant": "Shipped baseline",
+      "precision": "6-bit palettized",
+      "encoder_rel_l2": 0.23784926533699036,
+      "transcription": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that person.",
+      "wer_vs_ref": 0.03636363636363636
+    }
+  ]
+}

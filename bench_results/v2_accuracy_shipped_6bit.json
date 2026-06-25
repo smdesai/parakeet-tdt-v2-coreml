@@ -1,0 +1,22 @@
+{
+  "variant": "Shipped 6-bit baseline",
+  "mel_metrics": {
+    "max_abs_diff": 0.926913857460022,
+    "mean_abs_diff": 0.007498478051275015,
+    "rel_l2": 0.020568717271089554,
+    "ref_norm": 438.17633056640625,
+    "pred_norm": 438.1690673828125,
+    "diff_norm": 9.012724876403809
+  },
+  "encoder_metrics": {
+    "max_abs_diff": 0.4790228605270386,
+    "mean_abs_diff": 0.03148474171757698,
+    "rel_l2": 0.6499373316764832,
+    "ref_norm": 29.425273895263672,
+    "pred_norm": 31.7827205657959,
+    "diff_norm": 19.124584197998047
+  },
+  "wer": 0.03636363636363636,
+  "transcription": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that person.",
+  "error": null
+}

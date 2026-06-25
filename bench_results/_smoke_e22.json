@@ -1,0 +1,271 @@
+{
+  "systems": [
+    "nemo",
+    "fp16",
+    "shipped_6bit"
+  ],
+  "summary": {
+    "earnings22": {
+      "nemo": {
+        "n": 15,
+        "wer_truth_mean": 0.18170860755004628,
+        "wer_truth_median": 0.12903225806451613,
+        "wer_vs_nemo_mean": null
+      },
+      "fp16": {
+        "n": 15,
+        "wer_truth_mean": 0.17936831659495456,
+        "wer_truth_median": 0.125,
+        "wer_vs_nemo_mean": 0.0060011883541295314
+      },
+      "shipped_6bit": {
+        "n": 15,
+        "wer_truth_mean": 0.18020022487996007,
+        "wer_truth_median": 0.11627906976744186,
+        "wer_vs_nemo_mean": 0.04938894422602381
+      }
+    }
+  },
+  "per_clip": [
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk0.wav",
+      "dur_s": 15.0,
+      "gt_words": 29,
+      "nemo_wer_truth": 0.034482758620689655,
+      "fp16_wer_truth": 0.034482758620689655,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.06896551724137931,
+      "shipped_6bit_wer_vs_nemo": 0.034482758620689655,
+      "_texts": {
+        "nemo": "Good day, everyone, and welcome to LATAM Airlines Group Earnings Release Conference Call. Just as a reminder, this conference is being recorded. LATAM Airlines Group Earnings Release for the",
+        "fp16": "Good day, everyone, and welcome to LATAM Airlines Group Earnings Release Conference Call. Just as a reminder, this conference is being recorded. LATAM Airlines Group Earnings Release for the",
+        "shipped_6bit": "G'day everyone and welcome to LATAM Airlines Group Earnings Release Conference Call. Just as a reminder, this conference is being recorded. LATAM Airlines Group Earnings release for the"
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk109.wav",
+      "dur_s": 15.0,
+      "gt_words": 43,
+      "nemo_wer_truth": 0.11627906976744186,
+      "fp16_wer_truth": 0.11627906976744186,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.11627906976744186,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Provide at this point. Thank you very much. Hi, Bruno. This is Roberto. Just to clarify, we are not taking out capacity. What I was trying to explain is that the incorporation of the 14 aircraft happened around mid next year.",
+        "fp16": "Provide at this point. Thank you very much. Hi, Bruno. This is Roberto. Just to clarify, we are not taking out capacity. What I was trying to explain is that the incorporation of the 14 aircraft happened around mid next year.",
+        "shipped_6bit": "Provide at this point. Thank you very much. Hi, Bruno. This is Roberto. Just to clarify, we are not taking out capacity. What I was trying to explain is that the incorporation of the 14 aircraft happened around mid next year."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk118.wav",
+      "dur_s": 15.0,
+      "gt_words": 32,
+      "nemo_wer_truth": 0.125,
+      "fp16_wer_truth": 0.125,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.0625,
+      "shipped_6bit_wer_vs_nemo": 0.058823529411764705,
+      "_texts": {
+        "nemo": "And business conversations. Okay, thank you. No problem. Thank you. And our next question comes from Joe Cogan with Scotia Bank. Hello, and thank you for the call. I wanted to ask another question.",
+        "fp16": "And business conversations. Okay, thank you. No problem. Thank you. And our next question comes from Joe Cogan with Scotia Bank. Hello, and thank you for the call. I wanted to ask another question.",
+        "shipped_6bit": "And business conversations. Okay, thank you. No problem. Thank you. And our next question comes from Joe Cogan with Scotiabank. Hello, and thank you for the call. I wanted to ask another question."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk132.wav",
+      "dur_s": 15.0,
+      "gt_words": 42,
+      "nemo_wer_truth": 0.21428571428571427,
+      "fp16_wer_truth": 0.21428571428571427,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.21428571428571427,
+      "shipped_6bit_wer_vs_nemo": 0.02702702702702703,
+      "_texts": {
+        "nemo": "Term with your kind of corporate discussions, or is that something that kind of develops over time? Sorry, Stavi, does it help on what type of discussion? Just wondering if that helps you with your corporate discussion.",
+        "fp16": "Term with your kind of corporate discussions, or is that something that kind of develops over time? Sorry, Stavi, does it help on what type of discussion? Just wondering if that helps you with your corporate discussion.",
+        "shipped_6bit": "term with your kind of corporate discussions or is that something that kind of develops over time? Sorry, Savvy, does it help on what type of discussion? Just wondering if that helps you with your corporate discussion."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk135.wav",
+      "dur_s": 15.0,
+      "gt_words": 45,
+      "nemo_wer_truth": 0.4222222222222222,
+      "fp16_wer_truth": 0.4222222222222222,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.4222222222222222,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Got it. Thanks, Jerome. And then just one clarification on the hedging. You have some good hedge positions, but curious at what level you've hedged given the sharp pullback in fuel prices here.",
+        "fp16": "Got it. Thanks, Jerome. And then just one clarification on the hedging. You have some good hedge positions, but curious at what level you've hedged given the sharp pullback in fuel prices here.",
+        "shipped_6bit": "Got it. Thanks, Jerome. And then just one clarification on the hedging. You have some good hedge positions, but curious at what level you've hedged given the sharp pullback in fuel prices here."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk16.wav",
+      "dur_s": 15.0,
+      "gt_words": 35,
+      "nemo_wer_truth": 0.17142857142857143,
+      "fp16_wer_truth": 0.17142857142857143,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.17142857142857143,
+      "shipped_6bit_wer_vs_nemo": 0.08571428571428572,
+      "_texts": {
+        "nemo": "Never before. We acquired Multiplus and relaunched our now unified frequent flyer program under the Lat and Pass brand, becoming the fourth largest frequent flyer program in the world. We launched the first planes with",
+        "fp16": "Never before. We acquired Multiplus and relaunched our now unified frequent flyer program under the Lat and Pass brand, becoming the fourth largest frequent flyer program in the world. We launched the first planes with",
+        "shipped_6bit": "Never before. We acquired Multiplus and we launched our now unified frequent flyer program under the LAT and PAS brand, becoming the fourth largest frequent flyer program in the world. We launched the first planes with"
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk18.wav",
+      "dur_s": 15.0,
+      "gt_words": 35,
+      "nemo_wer_truth": 0.11428571428571428,
+      "fp16_wer_truth": 0.11428571428571428,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.11428571428571428,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "this phase and that will be concluded by the end of this year twenty twenty. In addition, we launched our new business service and the premium economy service that later Andres will detail. As a result,",
+        "fp16": "this phase and that will be concluded by the end of this year twenty twenty. In addition, we launched our new business service and the premium economy service that later Andres will detail. As a result,",
+        "shipped_6bit": "this phase and that will be concluded by the end of this year twenty twenty. In addition, we launched our new business service and the premium economy service that later Andres will detail. As a result,"
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk19.wav",
+      "dur_s": 15.0,
+      "gt_words": 36,
+      "nemo_wer_truth": 0.08333333333333333,
+      "fp16_wer_truth": 0.08333333333333333,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.08333333333333333,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Our passengers recognize us with several awards, such as the best airline in South America by Skytrax World Airline Awards and the Best Global Airline of South America, according to the Apex Passenger Choice Awards.",
+        "fp16": "Our passengers recognize us with several awards, such as the best airline in South America by Skytrax World Airline Awards and the Best Global Airline of South America, according to the Apex Passenger Choice Awards.",
+        "shipped_6bit": "Our passengers recognize us with several awards, such as the Best Airline in South America by Skytrax World Airline Awards and the Best Global Airline of South America, according to the APEX Passenger Choice Awards."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk27.wav",
+      "dur_s": 15.0,
+      "gt_words": 43,
+      "nemo_wer_truth": 0.023255813953488372,
+      "fp16_wer_truth": 0.023255813953488372,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.046511627906976744,
+      "shipped_6bit_wer_vs_nemo": 0.023255813953488372,
+      "_texts": {
+        "nemo": "for the following years, which will give us even more financial flexibility for the upcoming years. The agreement with Delta announced last September is a recognition of the footprint that LATAM has in the region, and we are excited about the benefits that",
+        "fp16": "for the following years, which will give us even more financial flexibility for the upcoming years. The agreement with Delta announced last September is a recognition of the footprint that LATAM has in the region, and we are excited about the benefits that",
+        "shipped_6bit": "for the following years, which will give us even more financial flexibility for the upcoming years. The agreement with Delta announced last September is a recognition of the footprint that LATAN has in the region, and we are excited about the benefits that"
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk30.wav",
+      "dur_s": 15.0,
+      "gt_words": 31,
+      "nemo_wer_truth": 0.12903225806451613,
+      "fp16_wer_truth": 0.06451612903225806,
+      "fp16_wer_vs_nemo": 0.06060606060606061,
+      "shipped_6bit_wer_truth": 0.0,
+      "shipped_6bit_wer_vs_nemo": 0.12121212121212122,
+      "_texts": {
+        "nemo": "first half of twenty twenty. We also signed a loyalty program agreement that will enable reciprocal frequent flyer benefits starting April 1st, twenty twenty with Delta. LATAM PASS members will be able to",
+        "fp16": "first half of twenty twenty. We also signed a loyalty program agreement that will enable reciprocal frequent flyer benefits starting April 1st, 2020 with Delta. LATAM PASS members will be able to",
+        "shipped_6bit": "first half of 2020. We also signed a loyalty program agreement that will enable reciprocal frequent flyer benefits starting April 1st, 2020 with Delta. LATAM PASS members will be able to"
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk32.wav",
+      "dur_s": 15.0,
+      "gt_words": 34,
+      "nemo_wer_truth": 0.058823529411764705,
+      "fp16_wer_truth": 0.058823529411764705,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.058823529411764705,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "to better serve passengers connecting with Delta flights. We could not be happier with all these achievements, and we want to thank our employees for the efforts during this year. Together, we solidify LATAM",
+        "fp16": "to better serve passengers connecting with Delta flights. We could not be happier with all these achievements, and we want to thank our employees for the efforts during this year. Together, we solidify LATAM",
+        "shipped_6bit": "to better serve passengers connecting with Delta flights. We could not be happier with all these achievements, and we want to thank our employees for the efforts during this year. Together, we solidify Latam"
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk49.wav",
+      "dur_s": 15.0,
+      "gt_words": 30,
+      "nemo_wer_truth": 0.4,
+      "fp16_wer_truth": 0.4,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.36666666666666664,
+      "shipped_6bit_wer_vs_nemo": 0.09375,
+      "_texts": {
+        "nemo": "20%. Notes factor reached 85.2%. This is 1.7% points higher above the fourth quarter of 2018. Latin Elena Felicil reached 14 ERCAP previously operated by Vanca Basil at the beginning.",
+        "fp16": "20%. Notes factor reached 85.2%. This is 1.7% points higher above the fourth quarter of 2018. Latin Elena Felicil reached 14 ERCAP previously operated by Vanca Basil at the beginning.",
+        "shipped_6bit": "20%. Notes factor reached 85.2%. This is 1.7% points higher above the fourth quarter of 2018. Latin Elspolasil reached 14 ERCAP previously operated by Venka Basil at the beginning."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk6.wav",
+      "dur_s": 15.0,
+      "gt_words": 34,
+      "nemo_wer_truth": 0.14705882352941177,
+      "fp16_wer_truth": 0.17647058823529413,
+      "fp16_wer_vs_nemo": 0.029411764705882353,
+      "shipped_6bit_wer_truth": 0.11764705882352941,
+      "shipped_6bit_wer_vs_nemo": 0.08823529411764706,
+      "_texts": {
+        "nemo": "After the cease of operations of some airlines in the region. As a consequence, we grew in ASK by 4.1 percent, and during twenty nineteen, LATAM carried 74 million passengers, the highest number.",
+        "fp16": "After the cease of operations of some airlines in the region. As a consequence, we grew in ASK by 4.1%, and during twenty nineteen, LATAM carried 74 million passengers, the highest number.",
+        "shipped_6bit": "After the cease of operations of some airlines in the region. As a consequence, we grew in ASK by 4.1%, and during 2019, LATAM carried 74 million passengers, the highest number."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk60.wav",
+      "dur_s": 15.0,
+      "gt_words": 32,
+      "nemo_wer_truth": 0.46875,
+      "fp16_wer_truth": 0.46875,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.46875,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "6% as a point of sale. This diversification allows us to adjust our operations and to offset the impacts that we may face in certain markets. Please turn now to Slide number six. As Ramida said, we maintain",
+        "fp16": "6% as a point of sale. This diversification allows us to adjust our operations and to offset the impacts that we may face in certain markets. Please turn now to Slide number six. As Ramida said, we maintain",
+        "shipped_6bit": "6% as a point of sale. This diversification allows us to adjust our operations and to offset the impacts that we may face in certain markets. Please turn now to slide number six. As Ramida said, we maintain."
+      }
+    },
+    {
+      "dataset": "earnings22",
+      "clip": "4329526_chunk86.wav",
+      "dur_s": 15.0,
+      "gt_words": 23,
+      "nemo_wer_truth": 0.21739130434782608,
+      "fp16_wer_truth": 0.21739130434782608,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.391304347826087,
+      "shipped_6bit_wer_vs_nemo": 0.20833333333333334,
+      "_texts": {
+        "nemo": "Okay, thank you so much. Thank you. Our next question comes from Savvy Sith with Raymond James. Hey, good morning. Just kind of curious",
+        "fp16": "Okay, thank you so much. Thank you. Our next question comes from Savvy Sith with Raymond James. Hey, good morning. Just kind of curious",
+        "shipped_6bit": "Okay, thank you so much. Thank you. Our next question comes from Savvy Seith with Raymond James. Hey, good morning."
+      }
+    }
+  ]
+}

@@ -1,0 +1,762 @@
+{
+  "summary": {
+    "dataset": "fda",
+    "n": 80,
+    "rel_l2": {
+      "fp16": 0.013051335699856281,
+      "int8": 0.045849546790122986,
+      "shipped_6bit": 0.23784926533699036
+    },
+    "sizes_gb": {
+      "fp16": 2.399,
+      "int8": 0.596,
+      "shipped_6bit": 0.446
+    },
+    "builds": {
+      "fp16": {
+        "size_gb": 2.399,
+        "rel_l2": 0.013051335699856281,
+        "wer_truth": 0.07056082367004504,
+        "drift_nemo": 0.0012646297081547067,
+        "exact_match": 0.95
+      },
+      "int8": {
+        "size_gb": 0.596,
+        "rel_l2": 0.045849546790122986,
+        "wer_truth": 0.0704612169925695,
+        "drift_nemo": 0.0024520525964522462,
+        "exact_match": 0.9125
+      },
+      "shipped_6bit": {
+        "size_gb": 0.446,
+        "rel_l2": 0.23784926533699036,
+        "wer_truth": 0.07400491602380628,
+        "drift_nemo": 0.015197799124849521,
+        "exact_match": 0.575
+      }
+    },
+    "nemo_wer_truth": 0.0706535246848772
+  },
+  "per_clip": [
+    {
+      "clip": "test_case_001.wav",
+      "fp16_wt": 0.0541,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0541,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0541,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_002.wav",
+      "fp16_wt": 0.0213,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0213,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0213,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_003.wav",
+      "fp16_wt": 0.0238,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0238,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0238,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_004.wav",
+      "fp16_wt": 0.0882,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0882,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0882,
+      "shipped_6bit_vn": 0.0143
+    },
+    {
+      "clip": "test_case_005.wav",
+      "fp16_wt": 0.0408,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0408,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0408,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_006.wav",
+      "fp16_wt": 0.0845,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0845,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0845,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_007.wav",
+      "fp16_wt": 0.075,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.075,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.15,
+      "shipped_6bit_vn": 0.0769
+    },
+    {
+      "clip": "test_case_008.wav",
+      "fp16_wt": 0.1136,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1136,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1136,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_009.wav",
+      "fp16_wt": 0.1846,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1692,
+      "int8_vn": 0.0149,
+      "shipped_6bit_wt": 0.1846,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_010.wav",
+      "fp16_wt": 0.0816,
+      "fp16_vn": 0.0204,
+      "int8_wt": 0.0816,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0816,
+      "shipped_6bit_vn": 0.0204
+    },
+    {
+      "clip": "test_case_011.wav",
+      "fp16_wt": 0.1034,
+      "fp16_vn": 0.0179,
+      "int8_wt": 0.1034,
+      "int8_vn": 0.0179,
+      "shipped_6bit_wt": 0.1034,
+      "shipped_6bit_vn": 0.0179
+    },
+    {
+      "clip": "test_case_012.wav",
+      "fp16_wt": 0.0725,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0725,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0725,
+      "shipped_6bit_vn": 0.0145
+    },
+    {
+      "clip": "test_case_013.wav",
+      "fp16_wt": 0.0952,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0952,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.119,
+      "shipped_6bit_vn": 0.0488
+    },
+    {
+      "clip": "test_case_014.wav",
+      "fp16_wt": 0.0857,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0857,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0571,
+      "shipped_6bit_vn": 0.0286
+    },
+    {
+      "clip": "test_case_015.wav",
+      "fp16_wt": 0.1081,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1081,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1081,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_016.wav",
+      "fp16_wt": 0.0345,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0345,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0345,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_017.wav",
+      "fp16_wt": 0.1061,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1061,
+      "int8_vn": 0.0149,
+      "shipped_6bit_wt": 0.1061,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_018.wav",
+      "fp16_wt": 0.0612,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0612,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0612,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_019.wav",
+      "fp16_wt": 0.0328,
+      "fp16_vn": 0.0164,
+      "int8_wt": 0.0164,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0164,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_020.wav",
+      "fp16_wt": 0.0732,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0732,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0732,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_021.wav",
+      "fp16_wt": 0.0667,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0667,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0833,
+      "shipped_6bit_vn": 0.0167
+    },
+    {
+      "clip": "test_case_022.wav",
+      "fp16_wt": 0.0175,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0175,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0175,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_023.wav",
+      "fp16_wt": 0.1077,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1077,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1077,
+      "shipped_6bit_vn": 0.0152
+    },
+    {
+      "clip": "test_case_024.wav",
+      "fp16_wt": 0.0769,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0769,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0769,
+      "shipped_6bit_vn": 0.0192
+    },
+    {
+      "clip": "test_case_025.wav",
+      "fp16_wt": 0.0741,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0741,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0926,
+      "shipped_6bit_vn": 0.0556
+    },
+    {
+      "clip": "test_case_026.wav",
+      "fp16_wt": 0.0256,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0256,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0513,
+      "shipped_6bit_vn": 0.0256
+    },
+    {
+      "clip": "test_case_027.wav",
+      "fp16_wt": 0.0612,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0612,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0612,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_028.wav",
+      "fp16_wt": 0.0816,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0816,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0816,
+      "shipped_6bit_vn": 0.0208
+    },
+    {
+      "clip": "test_case_029.wav",
+      "fp16_wt": 0.04,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.04,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.06,
+      "shipped_6bit_vn": 0.06
+    },
+    {
+      "clip": "test_case_030.wav",
+      "fp16_wt": 0.0476,
+      "fp16_vn": 0.0465,
+      "int8_wt": 0.0714,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0476,
+      "shipped_6bit_vn": 0.0698
+    },
+    {
+      "clip": "test_case_031.wav",
+      "fp16_wt": 0.0164,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0164,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0164,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_032.wav",
+      "fp16_wt": 0.037,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.037,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.037,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_033.wav",
+      "fp16_wt": 0.12,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.12,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.12,
+      "shipped_6bit_vn": 0.02
+    },
+    {
+      "clip": "test_case_034.wav",
+      "fp16_wt": 0.0444,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0444,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0444,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_035.wav",
+      "fp16_wt": 0.0492,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0492,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0328,
+      "shipped_6bit_vn": 0.0323
+    },
+    {
+      "clip": "test_case_036.wav",
+      "fp16_wt": 0.0769,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0769,
+      "int8_vn": 0.0789,
+      "shipped_6bit_wt": 0.1538,
+      "shipped_6bit_vn": 0.1316
+    },
+    {
+      "clip": "test_case_037.wav",
+      "fp16_wt": 0.1087,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1087,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1087,
+      "shipped_6bit_vn": 0.0426
+    },
+    {
+      "clip": "test_case_038.wav",
+      "fp16_wt": 0.0566,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0566,
+      "int8_vn": 0.0189,
+      "shipped_6bit_wt": 0.0566,
+      "shipped_6bit_vn": 0.0377
+    },
+    {
+      "clip": "test_case_039.wav",
+      "fp16_wt": 0.0357,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0357,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0357,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_040.wav",
+      "fp16_wt": 0.0233,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0233,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0233,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_041.wav",
+      "fp16_wt": 0.0784,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0784,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0784,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_042.wav",
+      "fp16_wt": 0.0149,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0149,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0149,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_043.wav",
+      "fp16_wt": 0.05,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.05,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.075,
+      "shipped_6bit_vn": 0.05
+    },
+    {
+      "clip": "test_case_044.wav",
+      "fp16_wt": 0.1429,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1429,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1633,
+      "shipped_6bit_vn": 0.0408
+    },
+    {
+      "clip": "test_case_045.wav",
+      "fp16_wt": 0.0926,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0926,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0926,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_046.wav",
+      "fp16_wt": 0.0,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_047.wav",
+      "fp16_wt": 0.0714,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0714,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0714,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_048.wav",
+      "fp16_wt": 0.0429,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0429,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0429,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_049.wav",
+      "fp16_wt": 0.0323,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0323,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0323,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_050.wav",
+      "fp16_wt": 0.0556,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0556,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0741,
+      "shipped_6bit_vn": 0.0179
+    },
+    {
+      "clip": "test_case_051.wav",
+      "fp16_wt": 0.0656,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0656,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0656,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_052.wav",
+      "fp16_wt": 0.0545,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0545,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0545,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_053.wav",
+      "fp16_wt": 0.1071,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1071,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0714,
+      "shipped_6bit_vn": 0.0702
+    },
+    {
+      "clip": "test_case_054.wav",
+      "fp16_wt": 0.0196,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0196,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0196,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_055.wav",
+      "fp16_wt": 0.2439,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.2439,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.2439,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_056.wav",
+      "fp16_wt": 0.05,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.05,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.05,
+      "shipped_6bit_vn": 0.0164
+    },
+    {
+      "clip": "test_case_057.wav",
+      "fp16_wt": 0.0638,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0638,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0638,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_058.wav",
+      "fp16_wt": 0.04,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.04,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.06,
+      "shipped_6bit_vn": 0.0196
+    },
+    {
+      "clip": "test_case_059.wav",
+      "fp16_wt": 0.1163,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1163,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1163,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_060.wav",
+      "fp16_wt": 0.029,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.029,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.029,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_061.wav",
+      "fp16_wt": 0.0893,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0893,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0893,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_062.wav",
+      "fp16_wt": 0.06,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.06,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.06,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_063.wav",
+      "fp16_wt": 0.0345,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0345,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.069,
+      "shipped_6bit_vn": 0.0517
+    },
+    {
+      "clip": "test_case_064.wav",
+      "fp16_wt": 0.0656,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0656,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0656,
+      "shipped_6bit_vn": 0.0161
+    },
+    {
+      "clip": "test_case_065.wav",
+      "fp16_wt": 0.0,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_066.wav",
+      "fp16_wt": 0.0952,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0952,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0952,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_067.wav",
+      "fp16_wt": 0.1282,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1282,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1282,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_068.wav",
+      "fp16_wt": 0.1053,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1053,
+      "int8_vn": 0.025,
+      "shipped_6bit_wt": 0.0789,
+      "shipped_6bit_vn": 0.025
+    },
+    {
+      "clip": "test_case_069.wav",
+      "fp16_wt": 0.05,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.05,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0667,
+      "shipped_6bit_vn": 0.0167
+    },
+    {
+      "clip": "test_case_070.wav",
+      "fp16_wt": 0.186,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.186,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.2326,
+      "shipped_6bit_vn": 0.0488
+    },
+    {
+      "clip": "test_case_071.wav",
+      "fp16_wt": 0.0962,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0962,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0769,
+      "shipped_6bit_vn": 0.0192
+    },
+    {
+      "clip": "test_case_072.wav",
+      "fp16_wt": 0.0217,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0217,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0217,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_073.wav",
+      "fp16_wt": 0.04,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.04,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.02,
+      "shipped_6bit_vn": 0.04
+    },
+    {
+      "clip": "test_case_074.wav",
+      "fp16_wt": 0.1186,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1186,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.1186,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_075.wav",
+      "fp16_wt": 0.122,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.122,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.122,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_076.wav",
+      "fp16_wt": 0.0769,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0769,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0769,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_077.wav",
+      "fp16_wt": 0.1026,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.1026,
+      "int8_vn": 0.0256,
+      "shipped_6bit_wt": 0.1026,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_078.wav",
+      "fp16_wt": 0.122,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.122,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.122,
+      "shipped_6bit_vn": 0.0
+    },
+    {
+      "clip": "test_case_079.wav",
+      "fp16_wt": 0.0303,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0303,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0303,
+      "shipped_6bit_vn": 0.0152
+    },
+    {
+      "clip": "test_case_080.wav",
+      "fp16_wt": 0.0222,
+      "fp16_vn": 0.0,
+      "int8_wt": 0.0222,
+      "int8_vn": 0.0,
+      "shipped_6bit_wt": 0.0222,
+      "shipped_6bit_vn": 0.0
+    }
+  ]
+}

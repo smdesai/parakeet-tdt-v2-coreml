@@ -1,0 +1,995 @@
+{
+  "op_type_totals" : {
+    "grand_gflop" : 4.2033389319999994,
+    "grand_gbps" : 0.00024099168482702093,
+    "grand_weight_mb" : 0,
+    "grand_runtime_ms" : 57446.511479999994
+  },
+  "cpu_op_types" : {
+    "select" : 1,
+    "ios17.cast" : 8,
+    "split" : 2,
+    "ios17.add" : 1,
+    "ios17.squeeze" : 4,
+    "ios17.gather" : 1,
+    "ios17.transpose" : 2,
+    "ios17.lstm" : 2,
+    "ios17.greater_equal" : 1,
+    "stack" : 2
+  },
+  "fallback_ops" : [
+    {
+      "device" : "CPU",
+      "cost" : 0.4999994856895027,
+      "function" : "main",
+      "reason" : "ane: Unsupported MIL operation \"lstm\".",
+      "supported" : "CPU",
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "name" : "input_lstm_layer_0_cast_fp16_0",
+      "index" : 40
+    },
+    {
+      "device" : "CPU",
+      "cost" : 0.4999994856895027,
+      "function" : "main",
+      "reason" : "ane: Unsupported MIL operation \"lstm\".",
+      "supported" : "CPU",
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "name" : "input_cast_fp16_0",
+      "index" : 53
+    },
+    {
+      "device" : "CPU",
+      "cost" : 9.9280163701977923e-07,
+      "function" : "main",
+      "reason" : "ane: Unsupported gather index type",
+      "supported" : "CPU",
+      "type" : "ios17.gather",
+      "short_type" : "gather",
+      "name" : "y_cast_fp16_cast_uint16_cast_uint16",
+      "index" : 15
+    },
+    {
+      "device" : "CPU",
+      "cost" : 9.2904441396254124e-09,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "name" : "input_3_cast_fp16",
+      "index" : 39
+    },
+    {
+      "device" : "CPU",
+      "cost" : 9.2904441396254124e-09,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "name" : "transpose_0_cast_fp16",
+      "index" : 62
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "h_in_to_fp16",
+      "index" : 20
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "c_in_to_fp16",
+      "index" : 25
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "c_out",
+      "index" : 64
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "h_out",
+      "index" : 65
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.1008898987179562e-09,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "split",
+      "short_type" : "split",
+      "name" : "split_0_cast_fp16_0",
+      "index" : 21
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.1008898987179562e-09,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "split",
+      "short_type" : "split",
+      "name" : "split_1_cast_fp16_0",
+      "index" : 26
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.0997455225238626e-09,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "stack",
+      "short_type" : "stack",
+      "name" : "obj_3_cast_fp16",
+      "index" : 55
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.0997455225238626e-09,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "stack",
+      "short_type" : "stack",
+      "name" : "obj_cast_fp16",
+      "index" : 58
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.0986011463297691e-09,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "decoder",
+      "index" : 63
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_layer_0_lstm_h0_squeeze_cast_fp16",
+      "index" : 28
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_layer_0_lstm_c0_squeeze_cast_fp16",
+      "index" : 30
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_h0_squeeze_cast_fp16",
+      "index" : 42
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "reason" : "ANE supported but not preferred",
+      "supported" : "CPU,ANE",
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_c0_squeeze_cast_fp16",
+      "index" : 44
+    },
+    {
+      "device" : "CPU",
+      "cost" : 4.1637170807754876e-12,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU",
+      "type" : "ios17.add",
+      "short_type" : "add",
+      "name" : "add_2",
+      "index" : 10
+    },
+    {
+      "device" : "CPU",
+      "cost" : 3.7192226308039054e-12,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU",
+      "type" : "select",
+      "short_type" : "select",
+      "name" : "select_0",
+      "index" : 11
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.5748464367103964e-12,
+      "function" : "main",
+      "reason" : "ane: Unable to resolve operation input \"y\".",
+      "supported" : "CPU",
+      "type" : "ios17.greater_equal",
+      "short_type" : "greater_equal",
+      "name" : "greater_equal_0",
+      "index" : 8
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.7165642911402643e-12,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "targets_to_int16",
+      "index" : 6
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.7165642911402643e-12,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "cast_1",
+      "index" : 7
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.7165642911402643e-12,
+      "function" : "main",
+      "reason" : "ane: Unsupported tensor data type: int32",
+      "supported" : "CPU",
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "select_0_to_int16",
+      "index" : 14
+    }
+  ],
+  "version" : "0.4.1",
+  "top_operations" : [
+    {
+      "bound" : "Compute",
+      "runtime_ms" : 28723.226112,
+      "gbps" : 0.00021794209242340974,
+      "total_mb" : 6.2599999999999998,
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "name" : "input_lstm_layer_0_cast_fp16_0"
+    },
+    {
+      "bound" : "Compute",
+      "runtime_ms" : 28723.226112,
+      "gbps" : 0.00021794209242340974,
+      "total_mb" : 6.2599999999999998,
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "name" : "input_cast_fp16_0"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.057033,
+      "gbps" : 21.952203110479896,
+      "total_mb" : 1.252,
+      "type" : "ios17.gather",
+      "short_type" : "gather",
+      "name" : "y_cast_fp16_cast_uint16_cast_uint16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.00053399999999999997,
+      "gbps" : 4.5936329588014981,
+      "total_mb" : 0.0024529999999999999,
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "name" : "input_3_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.00053399999999999997,
+      "gbps" : 4.5936329588014981,
+      "total_mb" : 0.0024529999999999999,
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "name" : "transpose_0_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.000126,
+      "gbps" : 58.126984126984127,
+      "total_mb" : 0.0073239999999999998,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "h_in_to_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.000126,
+      "gbps" : 58.126984126984127,
+      "total_mb" : 0.0073239999999999998,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "c_in_to_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.000126,
+      "gbps" : 58.126984126984127,
+      "total_mb" : 0.0073239999999999998,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "c_out_4D454D5F4F5054"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 0.000126,
+      "gbps" : 58.126984126984127,
+      "total_mb" : 0.0073239999999999998,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "h_out_4D454D5F4F5054"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 8.3999999999999995e-05,
+      "gbps" : 58.130952380952387,
+      "total_mb" : 0.0048830000000000002,
+      "type" : "ios17.tensor_buffer_to_tensor",
+      "short_type" : "tensor_buffer_to_tensor",
+      "name" : "h_in_4D454D5F4F5054"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 8.3999999999999995e-05,
+      "gbps" : 58.130952380952387,
+      "total_mb" : 0.0048830000000000002,
+      "type" : "ios17.tensor_buffer_to_tensor",
+      "short_type" : "tensor_buffer_to_tensor",
+      "name" : "c_in_4D454D5F4F5054"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 6.3e-05,
+      "gbps" : 58.19047619047619,
+      "total_mb" : 0.003666,
+      "type" : "stack",
+      "short_type" : "stack",
+      "name" : "obj_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 6.3e-05,
+      "gbps" : 58.253968253968253,
+      "total_mb" : 0.0036700000000000001,
+      "type" : "split",
+      "short_type" : "split",
+      "name" : "split_1_cast_fp16_0"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 6.3e-05,
+      "gbps" : 58.126984126984127,
+      "total_mb" : 0.0036619999999999999,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "decoder"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 6.3e-05,
+      "gbps" : 58.253968253968253,
+      "total_mb" : 0.0036700000000000001,
+      "type" : "split",
+      "short_type" : "split",
+      "name" : "split_0_cast_fp16_0"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 6.3e-05,
+      "gbps" : 58.19047619047619,
+      "total_mb" : 0.003666,
+      "type" : "stack",
+      "short_type" : "stack",
+      "name" : "obj_3_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 4.1999999999999998e-05,
+      "gbps" : 58.214285714285722,
+      "total_mb" : 0.0024450000000000001,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_c0_squeeze_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 4.1999999999999998e-05,
+      "gbps" : 58.214285714285722,
+      "total_mb" : 0.0024450000000000001,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_layer_0_lstm_h0_squeeze_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 4.1999999999999998e-05,
+      "gbps" : 58.214285714285722,
+      "total_mb" : 0.0024450000000000001,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_layer_0_lstm_c0_squeeze_cast_fp16"
+    },
+    {
+      "bound" : "Memory",
+      "runtime_ms" : 4.1999999999999998e-05,
+      "gbps" : 58.214285714285722,
+      "total_mb" : 0.0024450000000000001,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_h0_squeeze_cast_fp16"
+    }
+  ],
+  "unsupported_reasons_by_type" : {
+    "ios17.gather" : [
+      "Unsupported gather index type"
+    ],
+    "ios17.greater_equal" : [
+      "Unable to resolve operation input \"y\"."
+    ],
+    "ios17.add" : [
+      "Unsupported tensor data type: int32"
+    ],
+    "ios17.cast" : [
+      "Unsupported tensor data type: int32"
+    ],
+    "ios17.lstm" : [
+      "Unsupported MIL operation \"lstm\"."
+    ],
+    "select" : [
+      "Unsupported tensor data type: int32"
+    ]
+  },
+  "tool" : "anemll-profile",
+  "measured_prediction" : {
+    "status" : "ok",
+    "iter_per_sec" : 5392.2890266918303,
+    "tops" : 22.665618398490157,
+    "runs" : 10,
+    "weight_bw_gbps" : 0,
+    "steady_ms" : 0.28237499999999999,
+    "average_ms" : 0.18545,
+    "speedup_vs_sequential" : 309768.19347533025,
+    "gflops_per_sec" : 22665.618398490158
+  },
+  "summary" : {
+    "unique_costmodel_ops" : 26,
+    "gpu_cost" : 0,
+    "grand_runtime_ms" : 57446.511479999994,
+    "ane_ops" : 0,
+    "ane_cost" : 0,
+    "gpu_ops" : 0,
+    "grand_gflop" : 4.2033389319999994,
+    "total_cost" : 0.99999999999999989,
+    "cpu_ops" : 24,
+    "total_ops" : 67,
+    "const_ops" : 43,
+    "cpu_cost" : 0.99999999999999989,
+    "costmodel_entries" : 138
+  },
+  "compute" : {
+    "mode" : "CPU+ANE",
+    "interrupt_boundary_ms" : 300,
+    "compute_units_all" : 0
+  },
+  "graph_interruptions" : {
+    "interrupted_ops" : 0,
+    "total_non_focus_ops" : 24,
+    "interrupted_soft_ops" : 0,
+    "edge_runs_ignored" : 1,
+    "interrupted_hard_ops" : 0,
+    "focus_device" : "ANE",
+    "interrupted_missing_runtime_ops" : 0,
+    "edge_runs" : [
+      {
+        "focus_device" : "ANE",
+        "total_cost" : 0.99999999999999989,
+        "last_type" : "ios17.cast",
+        "soft_ops" : 15,
+        "runtime_ms" : 57446.511059999997,
+        "prev_focus_index" : -1,
+        "start_index" : 6,
+        "next_focus_index" : -1,
+        "switch_penalty_ms" : 0,
+        "path" : "CPU",
+        "last_short_type" : "cast",
+        "center_percent" : 53.731343283582092,
+        "edge_kind" : "all",
+        "end_index" : 65,
+        "id" : 0,
+        "function" : "main",
+        "function_total_ops" : 67,
+        "hard_ops" : 9,
+        "op_count" : 24,
+        "missing_runtime_ops" : 2,
+        "first_short_type" : "cast",
+        "reason" : "Unsupported tensor data type: int32 (+mixed)",
+        "total_penalty_ms" : 57446.511059999997,
+        "is_interruption" : 0,
+        "first_type" : "ios17.cast",
+        "device" : "CPU"
+      }
+    ],
+    "interrupted_cost" : 0,
+    "interruptions" : [
+
+    ],
+    "total_non_focus_cost" : 0.99999999999999989,
+    "estimated_switch_tax_ms" : 0,
+    "graph_interruptions" : 0,
+    "estimated_island_time_ms" : 0,
+    "estimated_total_tax_ms" : 0,
+    "best_case_savings_ms" : 0,
+    "timeline_by_function" : [
+      {
+        "function" : "main",
+        "segments" : [
+          {
+            "start_index" : 6,
+            "device" : "CPU",
+            "end_index" : 65,
+            "kind" : "all_non_ane"
+          }
+        ]
+      }
+    ],
+    "non_focus_runs" : 1
+  },
+  "conv_detail" : [
+
+  ],
+  "ordered_placements" : [
+    {
+      "device" : "CPU",
+      "cost" : 1.7165642911402643e-12,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "targets_to_int16",
+      "index" : 6
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.7165642911402643e-12,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "cast_1",
+      "index" : 7
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.5748464367103964e-12,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.greater_equal",
+      "short_type" : "greater_equal",
+      "name" : "greater_equal_0",
+      "index" : 8
+    },
+    {
+      "device" : "CPU",
+      "cost" : 4.1637170807754876e-12,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.add",
+      "short_type" : "add",
+      "name" : "add_2",
+      "index" : 10
+    },
+    {
+      "device" : "CPU",
+      "cost" : 3.7192226308039054e-12,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "select",
+      "short_type" : "select",
+      "name" : "select_0",
+      "index" : 11
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.7165642911402643e-12,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "select_0_to_int16",
+      "index" : 14
+    },
+    {
+      "device" : "CPU",
+      "cost" : 9.9280163701977923e-07,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.gather",
+      "short_type" : "gather",
+      "name" : "y_cast_fp16_cast_uint16_cast_uint16",
+      "index" : 15
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "h_in_to_fp16",
+      "index" : 20
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.1008898987179562e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "split",
+      "short_type" : "split",
+      "name" : "split_0_cast_fp16_0",
+      "index" : 21
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "c_in_to_fp16",
+      "index" : 25
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.1008898987179562e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "split",
+      "short_type" : "split",
+      "name" : "split_1_cast_fp16_0",
+      "index" : 26
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_layer_0_lstm_h0_squeeze_cast_fp16",
+      "index" : 28
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_layer_0_lstm_c0_squeeze_cast_fp16",
+      "index" : 30
+    },
+    {
+      "device" : "CPU",
+      "cost" : 9.2904441396254124e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "name" : "input_3_cast_fp16",
+      "index" : 39
+    },
+    {
+      "device" : "CPU",
+      "cost" : 0.4999994856895027,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "name" : "input_lstm_layer_0_cast_fp16_0",
+      "index" : 40
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_h0_squeeze_cast_fp16",
+      "index" : 42
+    },
+    {
+      "device" : "CPU",
+      "cost" : 7.3354514041393956e-10,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "name" : "input_lstm_c0_squeeze_cast_fp16",
+      "index" : 44
+    },
+    {
+      "device" : "CPU",
+      "cost" : 0.4999994856895027,
+      "function" : "main",
+      "ane_supported" : 0,
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "name" : "input_cast_fp16_0",
+      "index" : 53
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.0997455225238626e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "stack",
+      "short_type" : "stack",
+      "name" : "obj_3_cast_fp16",
+      "index" : 55
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.0997455225238626e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "stack",
+      "short_type" : "stack",
+      "name" : "obj_cast_fp16",
+      "index" : 58
+    },
+    {
+      "device" : "CPU",
+      "cost" : 9.2904441396254124e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "name" : "transpose_0_cast_fp16",
+      "index" : 62
+    },
+    {
+      "device" : "CPU",
+      "cost" : 1.0986011463297691e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "decoder",
+      "index" : 63
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "c_out",
+      "index" : 64
+    },
+    {
+      "device" : "CPU",
+      "cost" : 2.1972022926595382e-09,
+      "function" : "main",
+      "ane_supported" : 1,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "name" : "h_out",
+      "index" : 65
+    }
+  ],
+  "op_type_breakdown" : [
+    {
+      "bound" : "Comp",
+      "gflop" : 4.202,
+      "count" : 2,
+      "gbps" : 0.00021794209242340974,
+      "ms_per_op" : 28723.226112,
+      "share_pct" : 99.999896850133339,
+      "type" : "ios17.lstm",
+      "short_type" : "lstm",
+      "total_ms" : 57446.452224000001,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 0.001312,
+      "count" : 1,
+      "gbps" : 21.952203110479896,
+      "ms_per_op" : 0.057033,
+      "share_pct" : 9.9280179998146689e-05,
+      "type" : "ios17.gather",
+      "short_type" : "gather",
+      "total_ms" : 0.057033,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 2.5720000000000001e-06,
+      "count" : 2,
+      "gbps" : 4.5936329588014981,
+      "ms_per_op" : 0.00053399999999999997,
+      "share_pct" : 1.8591207237567841e-06,
+      "type" : "ios17.transpose",
+      "short_type" : "transpose",
+      "total_ms" : 0.0010679999999999999,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 1.1525999999999998e-05,
+      "count" : 8,
+      "gbps" : 58.157259259259256,
+      "ms_per_op" : 7.0875000000000002e-05,
+      "share_pct" : 9.8700510334278726e-07,
+      "type" : "ios17.cast",
+      "short_type" : "cast",
+      "total_ms" : 0.00056700000000000001,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 0,
+      "count" : 2,
+      "gbps" : 58.130952380952387,
+      "ms_per_op" : 8.3999999999999995e-05,
+      "share_pct" : 2.9244595654601099e-07,
+      "type" : "ios17.tensor_buffer_to_tensor",
+      "short_type" : "tensor_buffer_to_tensor",
+      "total_ms" : 0.00016799999999999999,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 5.1279999999999999e-06,
+      "count" : 4,
+      "gbps" : 58.214285714285722,
+      "ms_per_op" : 4.1999999999999998e-05,
+      "share_pct" : 2.9244595654601099e-07,
+      "type" : "ios17.squeeze",
+      "short_type" : "squeeze",
+      "total_ms" : 0.00016799999999999999,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 5.1279999999999999e-06,
+      "count" : 2,
+      "gbps" : 58.253968253968253,
+      "ms_per_op" : 6.3e-05,
+      "share_pct" : 2.1933446740950827e-07,
+      "type" : "split",
+      "short_type" : "split",
+      "total_ms" : 0.000126,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 2.5639999999999999e-06,
+      "count" : 2,
+      "gbps" : 58.19047619047619,
+      "ms_per_op" : 6.3e-05,
+      "share_pct" : 2.1933446740950827e-07,
+      "type" : "stack",
+      "short_type" : "stack",
+      "total_ms" : 0.000126,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 4.0000000000000002e-09,
+      "count" : 1,
+      "gbps" : 0,
+      "ms_per_op" : 0,
+      "share_pct" : 0,
+      "type" : "ios17.greater_equal",
+      "short_type" : "greater_equal",
+      "total_ms" : 0,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 4.0000000000000002e-09,
+      "count" : 1,
+      "gbps" : 0,
+      "ms_per_op" : 0,
+      "share_pct" : 0,
+      "type" : "ios17.add",
+      "short_type" : "add",
+      "total_ms" : 0,
+      "weight_mb" : 0
+    },
+    {
+      "bound" : "Mem",
+      "gflop" : 6e-09,
+      "count" : 1,
+      "gbps" : 0,
+      "ms_per_op" : 0,
+      "share_pct" : 0,
+      "type" : "select",
+      "short_type" : "select",
+      "total_ms" : 0,
+      "weight_mb" : 0
+    }
+  ],
+  "high_cost_ops" : [
+    {
+      "short_type" : "lstm",
+      "device" : "CPU",
+      "type" : "ios17.lstm",
+      "cost" : 0.4999994856895027,
+      "index" : 40
+    },
+    {
+      "short_type" : "lstm",
+      "device" : "CPU",
+      "type" : "ios17.lstm",
+      "cost" : 0.4999994856895027,
+      "index" : 53
+    }
+  ],
+  "model" : {
+    "format" : "ML Program",
+    "input_path" : "parakeet_coreml_v2_fp16\/parakeet_decoder.mlpackage",
+    "size_mb" : 13.77818489074707,
+    "size_bytes" : 14447474,
+    "display_name" : "parakeet_decoder.mlpackage",
+    "compiled_from_package" : true,
+    "compiled_model_path" : "\/var\/folders\/xf\/q_0j2cbd065fnd6wn8k15vxm0000gn\/T\/parakeet_decoder.mlmodelc"
+  },
+  "status" : {
+    "log_data_masked" : false,
+    "no_costmodel_entries" : false
+  },
+  "ane_op_types" : {
+
+  }
+}

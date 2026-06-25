@@ -1,0 +1,271 @@
+{
+  "systems": [
+    "nemo",
+    "fp16",
+    "shipped_6bit"
+  ],
+  "summary": {
+    "fda": {
+      "nemo": {
+        "n": 15,
+        "wer_truth_mean": 0.0821703847241008,
+        "wer_truth_median": 0.08450704225352113,
+        "wer_vs_nemo_mean": null
+      },
+      "fp16": {
+        "n": 15,
+        "wer_truth_mean": 0.0821703847241008,
+        "wer_truth_median": 0.08450704225352113,
+        "wer_vs_nemo_mean": 0.0025510204081632655
+      },
+      "shipped_6bit": {
+        "n": 15,
+        "wer_truth_mean": 0.08685292440664048,
+        "wer_truth_median": 0.08450704225352113,
+        "wer_vs_nemo_mean": 0.014754584488715684
+      }
+    }
+  },
+  "per_clip": [
+    {
+      "dataset": "fda",
+      "clip": "test_case_001.wav",
+      "dur_s": 17.1,
+      "gt_words": 37,
+      "nemo_wer_truth": 0.05405405405405406,
+      "fp16_wer_truth": 0.05405405405405406,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.05405405405405406,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "After the multidisciplinary meeting, Dr. Lear Nakamura took over the case. Tregarzo was added to the regimen for symptom control. Liver enzymes are within normal limits and trending downward. Labs will be repeated. before the next infusion.",
+        "fp16": "After the multidisciplinary meeting, Dr. Lear Nakamura took over the case. Tregarzo was added to the regimen for symptom control. Liver enzymes are within normal limits and trending downward. Labs will be repeated. before the next infusion.",
+        "shipped_6bit": "After the multidisciplinary meeting, Dr. Lear Nakamura took over the case. Tregarzo was added to the regimen for symptom control. Liver enzymes are within normal limits and trending downward. Labs will be repeated. before the next infusion."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_002.wav",
+      "dur_s": 22.1,
+      "gt_words": 47,
+      "nemo_wer_truth": 0.02127659574468085,
+      "fp16_wer_truth": 0.02127659574468085,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.02127659574468085,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "During the morning rounds, Dr. Kavita Bhattacharya examined the patient's lab results. The plan is to begin sandoglobulin at the standard induction dose. Dr. Kavita Bhattacharya entered the orders into the EHR. And verified the dozing. Dr. Kavita Bhattacharya will reassess at the next clinic visit.",
+        "fp16": "During the morning rounds, Dr. Kavita Bhattacharya examined the patient's lab results. The plan is to begin sandoglobulin at the standard induction dose. Dr. Kavita Bhattacharya entered the orders into the EHR. And verified the dozing. Dr. Kavita Bhattacharya will reassess at the next clinic visit.",
+        "shipped_6bit": "During the morning rounds, Dr. Kavita Bhattacharya examined the patient's lab results. The plan is to begin sandoglobulin at the standard induction dose. Dr. Kavita Bhattacharya entered the orders into the EHR. And verified the dozing. Dr. Kavita Bhattacharya will reassess at the next clinic visit."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_003.wav",
+      "dur_s": 21.3,
+      "gt_words": 42,
+      "nemo_wer_truth": 0.023809523809523808,
+      "fp16_wer_truth": 0.023809523809523808,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.023809523809523808,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Dr. Talia Xiong introduced himself and confirmed the medication reconciliation. The patient will continue Prevnar 20 as previously prescribed. Dr. Talia Xiong reviewed the consult notes from the visiting specialist. Specialist. Dr. Talia Xiong signed the order set, and the pharmacy was notified.",
+        "fp16": "Dr. Talia Xiong introduced himself and confirmed the medication reconciliation. The patient will continue Prevnar 20 as previously prescribed. Dr. Talia Xiong reviewed the consult notes from the visiting specialist. Specialist. Dr. Talia Xiong signed the order set, and the pharmacy was notified.",
+        "shipped_6bit": "Dr. Talia Xiong introduced himself and confirmed the medication reconciliation. The patient will continue Prevnar 20 as previously prescribed. Dr. Talia Xiong reviewed the consult notes from the visiting specialist. Specialist. Dr. Talia Xiong signed the order set and the pharmacy was notified."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_004.wav",
+      "dur_s": 31.6,
+      "gt_words": 68,
+      "nemo_wer_truth": 0.08823529411764706,
+      "fp16_wer_truth": 0.08823529411764706,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.08823529411764706,
+      "shipped_6bit_wer_vs_nemo": 0.014285714285714285,
+      "_texts": {
+        "nemo": "Dr. Gabriela Jovanovic consulted on the case after the initial workup. Profil-9, actimune, adogen, and tracolol are being weighed against each other for the next line. Premedication with antihistamines was added. To the protocol. Recent labs show stable renal function with a creatinine of 1.1. Social history is significant for a 20-pack year smoking history, now quit. Pharmacy will dispense the first month. month's supply tomorrow.",
+        "fp16": "Dr. Gabriela Jovanovic consulted on the case after the initial workup. Profil-9, actimune, adogen, and tracolol are being weighed against each other for the next line. Premedication with antihistamines was added. To the protocol. Recent labs show stable renal function with a creatinine of 1.1. Social history is significant for a 20-pack year smoking history, now quit. Pharmacy will dispense the first month. month's supply tomorrow.",
+        "shipped_6bit": "Dr. Gabriela Jovanovic consulted on the case after the initial workup. Profil-9, actimune, adogen, and traceolol are being weighed against each other for the next line. Premedication with antihistamines was added. To the protocol. Recent labs show stable renal function with a creatinine of 1.1. Social history is significant for a 20-pack year smoking history, now quit. Pharmacy will dispense the first month. month's supply tomorrow."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_005.wav",
+      "dur_s": 23.3,
+      "gt_words": 49,
+      "nemo_wer_truth": 0.04081632653061224,
+      "fp16_wer_truth": 0.04081632653061224,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.04081632653061224,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Dr. Melia Voskoboinik reviewed the imaging and prior medication history. The team initiated Provenge per the institutional protocol. Vital signs are stable with a blood pressure of 118 over 76. On exam, the patient is alert-oriented and in no acute distress. Follow-up is scheduled in two weeks.",
+        "fp16": "Dr. Melia Voskoboinik reviewed the imaging and prior medication history. The team initiated Provenge per the institutional protocol. Vital signs are stable with a blood pressure of 118 over 76. On exam, the patient is alert-oriented and in no acute distress. Follow-up is scheduled in two weeks.",
+        "shipped_6bit": "Dr. Melia Voskoboinik reviewed the imaging and prior medication history. The team initiated Provenge per the institutional protocol. Vital signs are stable with a blood pressure of 118 over 76. On exam, the patient is alert-oriented and in no acute distress. Follow-up is scheduled in two weeks."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_006.wav",
+      "dur_s": 32.1,
+      "gt_words": 71,
+      "nemo_wer_truth": 0.08450704225352113,
+      "fp16_wer_truth": 0.08450704225352113,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.08450704225352113,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "The case was transferred from the night team to Dr. Melia Voskoboinik. He recommended initiating mycobax after reviewing the comorbidities. Dr. Melia Voskoboinik reviewed the patient's prior imaging side by side. With the new study. The exam was unremarkable apart from mild peripheral edema. There is a strong family history of the same disease on the paternal side. The patient was educated on warning signs and discharge. charged in stable condition.",
+        "fp16": "The case was transferred from the night team to Dr. Melia Voskoboinik. He recommended initiating mycobax after reviewing the comorbidities. Dr. Melia Voskoboinik reviewed the patient's prior imaging side by side. With the new study. The exam was unremarkable apart from mild peripheral edema. There is a strong family history of the same disease on the paternal side. The patient was educated on warning signs and discharge. charged in stable condition.",
+        "shipped_6bit": "The case was transferred from the night team to Dr. Melia Voskoboinik. He recommended initiating mycobax after reviewing the comorbidities. Dr. Melia Voskoboinik reviewed the patient's prior imaging side by side. With the new study. The exam was unremarkable apart from mild peripheral edema. There is a strong family history of the same disease on the paternal side. The patient was educated on warning signs and discharge. charged in stable condition."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_007.wav",
+      "dur_s": 19.2,
+      "gt_words": 40,
+      "nemo_wer_truth": 0.075,
+      "fp16_wer_truth": 0.075,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.15,
+      "shipped_6bit_wer_vs_nemo": 0.07692307692307693,
+      "_texts": {
+        "nemo": "After the multidisciplinary meeting, Dr. Leo Daskalov took over the case. Alleglo was added to the regimen for symptom control. Inflammatory markers including CRP and ESR are now within range. Dr. Leodaskalov will reassess at the next clinic visit.",
+        "fp16": "After the multidisciplinary meeting, Dr. Leo Daskalov took over the case. Alleglo was added to the regimen for symptom control. Inflammatory markers including CRP and ESR are now within range. Dr. Leodaskalov will reassess at the next clinic visit.",
+        "shipped_6bit": "After the multidisciplinary meeting, doctor Leodaskalov took over the case. Alleglo was added to the regimen for symptom control. Inflammatory markers including CRP and ESR are now within range. Dr. Leodaskalov will reassess at the next clinic visit."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_008.wav",
+      "dur_s": 18.9,
+      "gt_words": 44,
+      "nemo_wer_truth": 0.11363636363636363,
+      "fp16_wer_truth": 0.11363636363636363,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.11363636363636363,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "The case was transferred from the night team to doctor Chinwi Fitzgerald. Xenopax was discontinued and Rituxin Hycella was started the following day. The dose will be titrated up over the next four weeks as tolerated. Labs will be repeated before the next infusion.",
+        "fp16": "The case was transferred from the night team to doctor Chinwi Fitzgerald. Xenopax was discontinued and Rituxin Hycella was started the following day. The dose will be titrated up over the next four weeks as tolerated. Labs will be repeated before the next infusion.",
+        "shipped_6bit": "The case was transferred from the night team to doctor Chinwi Fitzgerald. Xenopax was discontinued and Rituxin Hycella was started the following day. The dose will be titrated up over the next four weeks as tolerated. Labs will be repeated before the next infusion."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_009.wav",
+      "dur_s": 32.8,
+      "gt_words": 65,
+      "nemo_wer_truth": 0.18461538461538463,
+      "fp16_wer_truth": 0.18461538461538463,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.18461538461538463,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Dr. Amelia Voskoboinik reviewed the imaging and prior medication history. The current regimen consists of Ozenvelt Humolog Mix 7525 and DAC sci-fi. Prior surgical history includes a colossal. Cystectomy and an appendectomy. Range of motion is preserved and the joints are non-swollen. Dr. Milia Voskoboinik called the family with the updated results in the afternoon. Dr. Amelia Voskoboynik will reassess at the next clinic visit.",
+        "fp16": "Dr. Amelia Voskoboinik reviewed the imaging and prior medication history. The current regimen consists of Ozenvelt Humolog Mix 7525 and DAC sci-fi. Prior surgical history includes a colossal. Cystectomy and an appendectomy. Range of motion is preserved and the joints are non-swollen. Dr. Milia Voskoboinik called the family with the updated results in the afternoon. Dr. Amelia Voskoboynik will reassess at the next clinic visit.",
+        "shipped_6bit": "Dr. Amelia Voskoboinik reviewed the imaging and prior medication history. The current regimen consists of Ozenvelt Humolog Mix 7525 and DAC sci-fi. Prior surgical history includes a colossal. Cystectomy and an appendectomy. Range of motion is preserved and the joints are non-swollen. Dr. Milia Voskoboinik called the family with the updated results in the afternoon. Dr. Amelia Voskoboynik will reassess at the next clinic visit."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_010.wav",
+      "dur_s": 24.0,
+      "gt_words": 49,
+      "nemo_wer_truth": 0.08163265306122448,
+      "fp16_wer_truth": 0.08163265306122448,
+      "fp16_wer_vs_nemo": 0.02040816326530612,
+      "shipped_6bit_wer_truth": 0.08163265306122448,
+      "shipped_6bit_wer_vs_nemo": 0.02040816326530612,
+      "_texts": {
+        "nemo": "At follow up, doctor Elena Garcia Lopez discussed adherence and side effects. The current regimen consists of atriin, amphidase, and regenocyte. Liver enzymes are within normal limits and trending downward. Dr. Elena Garcia-Lopez reviewed the consult notes from the visiting specialist. Follow-up is scheduled in two weeks.",
+        "fp16": "At follow up, doctor Elena Garcia Lopez discussed adherence and side effects. The current regimen consists of atrin, amphidase, and regenocyte. Liver enzymes are within normal limits and trending downward. Dr. Elena Garcia-Lopez reviewed the consult notes from the visiting specialist. Follow-up is scheduled in two weeks.",
+        "shipped_6bit": "At follow up, doctor Elena Garcia Lopez discussed adherence and side effects. The current regimen consists of atrium, amphidase, and regenocyte. Liver enzymes are within normal limits and trending downward. Dr. Elena Garcia Lopez reviewed the consult notes from the visiting specialist. Follow-up is scheduled in two weeks."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_011.wav",
+      "dur_s": 27.4,
+      "gt_words": 58,
+      "nemo_wer_truth": 0.10344827586206896,
+      "fp16_wer_truth": 0.10344827586206896,
+      "fp16_wer_vs_nemo": 0.017857142857142856,
+      "shipped_6bit_wer_truth": 0.10344827586206896,
+      "shipped_6bit_wer_vs_nemo": 0.017857142857142856,
+      "_texts": {
+        "nemo": "The patient was admitted overnight and seen by Dr. Jasper Zaragoza at ZO700. Prior therapies tried were Adbre, Emplicity, Pergonal, and Tedvax, all without sustained response. Zaragoza reviewed the consult notes from the visiting specialist. There is a strong family history of the same disease on the paternal side. Follow-up is scheduled in two weeks.",
+        "fp16": "The patient was admitted overnight and seen by Dr. Jasper Zaragoza at ZO700. Prior therapies tried were ADBRI, Emplicity, Pergonal, and Tedvax, all without sustained response. Zaragoza reviewed the consult notes from the visiting specialist. There is a strong family history of the same disease on the paternal side. Follow-up is scheduled in two weeks.",
+        "shipped_6bit": "The patient was admitted overnight and seen by Dr. Jasper Zaragoza at ZO700. Prior therapies tried were Adbri, Emplicity, Pergonal, and Tedvax, all without sustained response. Zaragoza reviewed the consult notes from the visiting specialist. There is a strong family history of the same disease on the paternal side. Follow-up is scheduled in two weeks."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_012.wav",
+      "dur_s": 31.5,
+      "gt_words": 69,
+      "nemo_wer_truth": 0.07246376811594203,
+      "fp16_wer_truth": 0.07246376811594203,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.07246376811594203,
+      "shipped_6bit_wer_vs_nemo": 0.014492753623188406,
+      "_texts": {
+        "nemo": "Dr. Juan Jovanovic introduced himself and confirmed the medication reconciliation. She decided to start the patient on Nukullah given the diagnosis. Dr. Juan Jovanovic called the family with the updated results in the Afternoon. Recent labs show stable renal function with a creatinine of 1.1. Dr. Joan Jovanovic entered the orders into the EHR and verified the dozing. The case was documented and the care. team was paged.",
+        "fp16": "Dr. Juan Jovanovic introduced himself and confirmed the medication reconciliation. She decided to start the patient on Nukullah given the diagnosis. Dr. Juan Jovanovic called the family with the updated results in the Afternoon. Recent labs show stable renal function with a creatinine of 1.1. Dr. Joan Jovanovic entered the orders into the EHR and verified the dozing. The case was documented and the care. team was paged.",
+        "shipped_6bit": "Dr. Juan Jovanovic introduced himself and confirmed the medication reconciliation. She decided to start the patient on Nukola given the diagnosis. Dr. Juan Jovanovic called the family with the updated results in the Afternoon. Recent labs show stable renal function with a creatinine of 1.1. Dr. Joan Jovanovic entered the orders into the EHR and verified the dozing. The case was documented and the care. team was paged."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_013.wav",
+      "dur_s": 19.8,
+      "gt_words": 42,
+      "nemo_wer_truth": 0.09523809523809523,
+      "fp16_wer_truth": 0.09523809523809523,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.11904761904761904,
+      "shipped_6bit_wer_vs_nemo": 0.04878048780487805,
+      "_texts": {
+        "nemo": "Dr. Priya Castaneda introduced himself and confirmed the medication reconciliation. Vacta was used as a bridge until Qutiquig could be obtained. Dr. Priyakastaneda answered the patient's questions about long-term outcomes. Pharmacy will dispense the first month's supply tomorrow.",
+        "fp16": "Dr. Priya Castaneda introduced himself and confirmed the medication reconciliation. Vacta was used as a bridge until Qutiquig could be obtained. Dr. Priyakastaneda answered the patient's questions about long-term outcomes. Pharmacy will dispense the first month's supply tomorrow.",
+        "shipped_6bit": "Dr. Priya Castaneda introduced himself and confirmed the medication reconciliation. Vacta was used as a bridge until Qutiquig could be obtained. Dr. Priyakastanita answered the patient's questions about long-term outcome. Pharmacy will dispense the first month's supply tomorrow."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_014.wav",
+      "dur_s": 32.5,
+      "gt_words": 70,
+      "nemo_wer_truth": 0.08571428571428572,
+      "fp16_wer_truth": 0.08571428571428572,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.05714285714285714,
+      "shipped_6bit_wer_vs_nemo": 0.02857142857142857,
+      "_texts": {
+        "nemo": "The patient was admitted overnight and seen by Dr. Hannah Foglio at DO700. Cablevi-Alhemohypertet and Humulin N are being weighed against each other for the next line. Vital signs are stable with a blood pressure. Pressure of 118 over 76. Prior surgical history includes a cholecystectomy and an appendectomy. Range of motion is preserved and the joints are non-swollen. The pharmacist verified. the dozing and counseled the patient.",
+        "fp16": "The patient was admitted overnight and seen by Dr. Hannah Foglio at DO700. Cablevi-Alhemohypertet and Humulin N are being weighed against each other for the next line. Vital signs are stable with a blood pressure. Pressure of 118 over 76. Prior surgical history includes a cholecystectomy and an appendectomy. Range of motion is preserved and the joints are non-swollen. The pharmacist verified. the dozing and counseled the patient.",
+        "shipped_6bit": "The patient was admitted overnight and seen by Dr. Hannah Foglio at DO700. Cablevi, Alhemo, Hypertet, and Humulin N are being weighed against each other for the next line. Vital signs are stable with a blood pressure. Pressure of 118 over 76. Prior surgical history includes a cholecystectomy and an appendectomy. Range of motion is preserved and the joints are non-swollen. The pharmacist verified. the dozing and counseled the patient."
+      }
+    },
+    {
+      "dataset": "fda",
+      "clip": "test_case_015.wav",
+      "dur_s": 17.6,
+      "gt_words": 37,
+      "nemo_wer_truth": 0.10810810810810811,
+      "fp16_wer_truth": 0.10810810810810811,
+      "fp16_wer_vs_nemo": 0.0,
+      "shipped_6bit_wer_truth": 0.10810810810810811,
+      "shipped_6bit_wer_vs_nemo": 0.0,
+      "_texts": {
+        "nemo": "Induction will combine EDVATE with NIVSTIM and TFIM-V. Neurologic exam is non-focal and grossly intact. Premedication with antihistamines was added to the protocol. The patient was educated on warning signs. and discharged in stable condition.",
+        "fp16": "Induction will combine EDVATE with NIVSTIM and TFIM-V. Neurologic exam is non-focal and grossly intact. Premedication with antihistamines was added to the protocol. The patient was educated on warning signs. and discharged in stable condition.",
+        "shipped_6bit": "Induction will combine EDVATE with NIVSTIM and TFIM-V. Neurologic exam is non-focal and grossly intact. Premedication with antihistamines was added to the protocol. The patient was educated on warning signs. and discharged in stable condition."
+      }
+    }
+  ]
+}

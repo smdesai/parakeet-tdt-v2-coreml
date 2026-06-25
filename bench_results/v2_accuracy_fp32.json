@@ -1,0 +1,22 @@
+{
+  "variant": "New FP32",
+  "mel_metrics": {
+    "max_abs_diff": 0.0016865730285644531,
+    "mean_abs_diff": 7.840399121050723e-06,
+    "rel_l2": 2.633131225593388e-05,
+    "ref_norm": 438.17633056640625,
+    "pred_norm": 438.1763610839844,
+    "diff_norm": 0.011537757702171803
+  },
+  "encoder_metrics": {
+    "max_abs_diff": 0.5919417142868042,
+    "mean_abs_diff": 0.03211431950330734,
+    "rel_l2": 0.6665893197059631,
+    "ref_norm": 29.425273895263672,
+    "pred_norm": 31.736400604248047,
+    "diff_norm": 19.614572525024414
+  },
+  "wer": 0.0,
+  "transcription": "In the last seven days, we've signed the same number of contracts as we signed in the Holocaust Q4. There is clear, tangible value being driven by these products, and it's only going to get better and quickly. Ultimately, you've got to be very passionate about what you're building. You've got to have that purpose.",
+  "error": null
+}
