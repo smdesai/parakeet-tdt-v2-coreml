@@ -117,34 +117,14 @@ final class ModelRunner {
             output: [Float](repeating: 0, count: Const.decoderHidden))
     }
 
-    // Reusable provider + input buffers for the decoder hot path (FeatureBag). The
-    // decode thread is the *only* caller (Transcriber's stage-3 worker, or the mic
-    // path's serial queue — never the preprocess/encode threads), so a single
-    // per-runner bag is safe. `targets` is overwritten in place each call;
-    // `target_length` is a constant 1 written once at construction; `h_in`/`c_in`
-    // are fresh model outputs each step (their object identity changes), so the bag
-    // swaps in those two MLFeatureValues per call rather than copying into a fixed
-    // buffer (same data either way).
-    private lazy var decoderTargets: MLMultiArray =
-        MLArray.int32([0], shape: [1, 1])               // overwritten in place each call
-    private lazy var decoderBag: FeatureBag = {
-        FeatureBag(values: [
-            "targets": MLFeatureValue(multiArray: decoderTargets),
-            "target_length": MLFeatureValue(multiArray: MLArray.int32([1], shape: [1])),
-        ])
-    }()
-
     /// Advance the predictor with one token, mutating `state` (output/h/c).
     func runDecoder(token: Int, state: inout DecoderState) throws {
-        // Overwrite the reused targets buffer in place (int32 [1,1]).
-        decoderTargets.withUnsafeMutableBytes { ptr, _ in
-            ptr.bindMemory(to: Int32.self)[0] = Int32(token)
-        }
-        // h_in/c_in are last step's model outputs (new objects each call) — set them
-        // on the bag each call. target_length is constant and already set.
-        decoderBag.set("h_in", MLFeatureValue(multiArray: state.h))
-        decoderBag.set("c_in", MLFeatureValue(multiArray: state.c))
-        let out = try predict(decoder, provider: decoderBag)
+        let out = try predict(decoder, [
+            "targets": MLArray.int32([Int32(token)], shape: [1, 1]),
+            "target_length": MLArray.int32([1], shape: [1]),
+            "h_in": state.h,
+            "c_in": state.c,
+        ])
         guard
             let dec = out.featureValue(for: "decoder")?.multiArrayValue,
             let h = out.featureValue(for: "h_out")?.multiArrayValue,
@@ -164,62 +144,15 @@ final class ModelRunner {
     private lazy var encStepType = inType(joint, "encoder_step")
     private lazy var decStepType = inType(joint, "decoder_step")
 
-    // Reusable provider + input buffers for the joint hot path (FeatureBag). This is
-    // the per-encoder-frame call (~50k/run) and the biggest win: zero per-call dict /
-    // provider / array allocation. Single-threaded: runJoint is only ever called from
-    // the decode thread (Transcriber stage-3 worker / StreamingTranscriber serial
-    // queue), so one per-runner reusable bag is safe. `decoderStep` is overwritten in
-    // place each call with the SAME dtype-aware logic as the old `MLArray.float(...)`;
-    // `encoderStep` is rebound into the bag whenever the caller's buffer object changes.
-    private lazy var jointDecStep: MLMultiArray =
-        MLArray.empty(shape: [1, Const.decoderHidden, 1], dataType: decStepType)
-    private lazy var jointBag: FeatureBag = {
-        FeatureBag(values: ["decoder_step": MLFeatureValue(multiArray: jointDecStep)])
-    }()
-    private var jointBoundEncStep: MLMultiArray?
-
     /// `encoderStep` is a reusable [1,1024,1] array filled by the caller.
     func runJoint(encoderStep: MLMultiArray, decoderOutput: [Float]) throws -> JointDecision {
-        // Bind the caller's encoder_step buffer into the bag whenever the object
-        // identity changes. The Strategy-C decode passes the SAME reused encStep on
-        // every call (so this rebinds only once and the hot path stays
-        // allocation-free); the baseline path (TdtDecoder.decode) mints a fresh
-        // encStep per window, so each window must rebind — otherwise the joint would
-        // keep reading the previous window's stale features.
-        if encoderStep !== jointBoundEncStep {
-            jointBag.set("encoder_step", MLFeatureValue(multiArray: encoderStep))
-            jointBoundEncStep = encoderStep
-        }
-        // Overwrite the reused decoder_step buffer in place. This mirrors
-        // MLArray.float(decoderOutput, ...) exactly (same Float16/Float32 conversion,
-        // same element order) so the values fed to the model are byte-identical.
-        fillDecStep(jointDecStep, from: decoderOutput)
-        let out = try predict(joint, provider: jointBag)
+        let decStep = MLArray.float(decoderOutput, shape: [1, Const.decoderHidden, 1], dataType: decStepType)
+        let out = try predict(joint, ["encoder_step": encoderStep, "decoder_step": decStep])
         guard
             let tok = out.featureValue(for: "token_id")?.multiArrayValue,
             let dur = out.featureValue(for: "duration")?.multiArrayValue
         else { throw ModelError.missingOutput("token_id/duration") }
         return JointDecision(tokenId: MLArray.firstInt(tok), duration: MLArray.firstInt(dur))
-    }
-
-    /// Overwrite a [1,640,1] decoder_step buffer in place from `decoderOutput`,
-    /// matching MLArray.float's dtype-aware conversion exactly (byte-identical).
-    private func fillDecStep(_ arr: MLMultiArray, from values: [Float]) {
-        let count = values.count
-        switch arr.dataType {
-        case .float16:
-            arr.withUnsafeMutableBytes { ptr, _ in
-                let dst = ptr.bindMemory(to: Float16.self)
-                for i in 0..<count { dst[i] = Float16(values[i]) }
-            }
-        case .float32:
-            arr.withUnsafeMutableBytes { ptr, _ in
-                let dst = ptr.bindMemory(to: Float32.self)
-                for i in 0..<count { dst[i] = values[i] }
-            }
-        default:
-            for i in 0..<count { arr[i] = NSNumber(value: values[i]) }
-        }
     }
 
     func makeEncoderStep() -> MLMultiArray {
@@ -234,15 +167,9 @@ final class ModelRunner {
 
     private func predict(_ model: MLModel, _ inputs: [String: MLMultiArray]) throws -> MLFeatureProvider {
         let dict = inputs.mapValues { MLFeatureValue(multiArray: $0) }
-        return try predict(model, provider: try MLDictionaryFeatureProvider(dictionary: dict))
-    }
-
-    /// Predict from a pre-built provider (the FeatureBag hot path), preserving the
-    /// always-on Profile timing and per-model labels.
-    private func predict(_ model: MLModel, provider: MLFeatureProvider) throws -> MLFeatureProvider {
         let label = modelLabel(model)
         let t0 = Date()
-        let r = try model.prediction(from: provider)
+        let r = try model.prediction(from: try MLDictionaryFeatureProvider(dictionary: dict))
         Profile.record(label, Date().timeIntervalSince(t0))
         return r
     }
@@ -253,36 +180,6 @@ final class ModelRunner {
         if model === decoder { return "decoder" }
         if model === joint { return "joint" }
         return "other"
-    }
-}
-
-/// A reusable `MLFeatureProvider` ("FeatureBag") that holds a fixed set of named
-/// `MLFeatureValue`s, each wrapping a pre-allocated `MLMultiArray`. Overwriting an
-/// array's contents in place (or swapping an entry via `set`) feeds new data to the
-/// next `prediction(from:)` with zero per-call dictionary/provider allocation — the
-/// hot-loop optimization for the joint (~per-frame) and decoder (~per-token) paths.
-///
-/// NOT thread-safe: each bag is owned by a single thread (the decode thread). The
-/// joint and decoder bags are only ever used from that one thread (Transcriber's
-/// stage-3 worker or StreamingTranscriber's serial queue); the preprocess/encode
-/// threads use the dict-based `predict` and never touch these bags.
-final class FeatureBag: NSObject, MLFeatureProvider {
-    private var values: [String: MLFeatureValue]
-
-    init(values: [String: MLFeatureValue]) {
-        self.values = values
-    }
-
-    /// Replace the stored value for a key (used for h_in/c_in, which are fresh model
-    /// outputs each step and therefore new objects).
-    func set(_ name: String, _ value: MLFeatureValue) {
-        values[name] = value
-    }
-
-    var featureNames: Set<String> { Set(values.keys) }
-
-    func featureValue(for featureName: String) -> MLFeatureValue? {
-        values[featureName]
     }
 }
 
