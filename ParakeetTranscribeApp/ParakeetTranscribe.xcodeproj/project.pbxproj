@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11DF1E5A88B87238DC03705F /* ModelDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C526030DCF377D1FE6DB2A4 /* ModelDownloader.swift */; };
+		13064D5109668394B7674761 /* TranscriptionView.swift~ in Resources */ = {isa = PBXBuildFile; fileRef = 0420067E5D486D6434C336DC /* TranscriptionView.swift~ */; };
 		1681873FBD89B6558425D043 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24309F7160B6EECE2722824B /* Encoder.swift */; };
 		1B8B25FB673CE054499C4797 /* MLArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041854D8E5E5CF21C2506A5 /* MLArray.swift */; };
 		352F4B5673CED360F747FB5E /* StreamingTranscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E1746FA02987660250E43 /* StreamingTranscriber.swift */; };
@@ -18,25 +20,38 @@
 		6AF3EF63455AC67BA3825CEE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84669B1944E333E76472F35F /* Theme.swift */; };
 		961BD89109E12276D92A2F0F /* AudioFileSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E3A8BAF90A958651AC2F7 /* AudioFileSamples.swift */; };
 		9CB6C5BD449BD4C319E68001 /* TranscriptionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70697E2262FBD94D6826390A /* TranscriptionEngine.swift */; };
-		AD3846715E5DF9EB5D0224C4 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 41D364DB54829D13CCB6ACA3 /* Models */; };
 		B738F8671D290A61B4695DCD /* TranscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0788EA171105E9C64E8DF062 /* TranscriptionView.swift */; };
 		C02AEA7885148DA50B3A136B /* ParakeetTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59676DA8CC787EDCA029D197 /* ParakeetTokenizer.swift */; };
 		CC5783C8EF0A17D1BA0E8688 /* MicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2711D67074DBB229A4BB6A8 /* MicRecorder.swift */; };
 		D02A7572E835A7CC4C60C8E6 /* WindowPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514F5735A0E12B1356A644EA /* WindowPlanner.swift */; };
 		D37CFA76131D1B3F5F0ADE09 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1A2DCD26E742234419B54 /* RootView.swift */; };
 		D736B2CFF0CAA1E77F653619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FB841B6DDAFEDDB2CFA1F3 /* Assets.xcassets */; };
+		F0B62F92B8507B5CA9E149CE /* ModelDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC45995C628BBCC4897955F /* ModelDownloaderTests.swift */; };
 		FE24BB2BB7D14D13B46220D4 /* ModelRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EF8DCC6642F7F4C8625B8D /* ModelRunner.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		24AACDE33E5972D0F3C40071 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7424033B7AF167EFAB365FFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC1763415874B9E6914DF724;
+			remoteInfo = ParakeetTranscribe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0420067E5D486D6434C336DC /* TranscriptionView.swift~ */ = {isa = PBXFileReference; path = "TranscriptionView.swift~"; sourceTree = "<group>"; };
 		0788EA171105E9C64E8DF062 /* TranscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionView.swift; sourceTree = "<group>"; };
+		0EC45995C628BBCC4897955F /* ModelDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloaderTests.swift; sourceTree = "<group>"; };
 		145A65A7EA22425583D58AAA /* ParakeetTranscribe.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ParakeetTranscribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C9E0F413CAA53E0387497 /* ParakeetTranscribeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParakeetTranscribeApp.swift; sourceTree = "<group>"; };
 		24309F7160B6EECE2722824B /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		29FB841B6DDAFEDDB2CFA1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309E3A8BAF90A958651AC2F7 /* AudioFileSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSamples.swift; sourceTree = "<group>"; };
-		41D364DB54829D13CCB6ACA3 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Models; path = Resources/Models; sourceTree = SOURCE_ROOT; };
+		3C526030DCF377D1FE6DB2A4 /* ModelDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloader.swift; sourceTree = "<group>"; };
 		514F5735A0E12B1356A644EA /* WindowPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPlanner.swift; sourceTree = "<group>"; };
+		5507CC1BCB4D589862282A8A /* ParakeetTranscribeTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ParakeetTranscribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59676DA8CC787EDCA029D197 /* ParakeetTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParakeetTokenizer.swift; sourceTree = "<group>"; };
 		68B1A2DCD26E742234419B54 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		70697E2262FBD94D6826390A /* TranscriptionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionEngine.swift; sourceTree = "<group>"; };
@@ -57,6 +72,7 @@
 			children = (
 				E804D43EC52491207D1FC2A6 /* Resources */,
 				C55AD78DB1272484E079AA38 /* Sources */,
+				136F42DAF49833ACD2BFB96E /* Tests */,
 				5AB141B4DADEF56DE254C9EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +90,7 @@
 			children = (
 				309E3A8BAF90A958651AC2F7 /* AudioFileSamples.swift */,
 				C2711D67074DBB229A4BB6A8 /* MicRecorder.swift */,
+				3C526030DCF377D1FE6DB2A4 /* ModelDownloader.swift */,
 				868E1746FA02987660250E43 /* StreamingTranscriber.swift */,
 				70697E2262FBD94D6826390A /* TranscriptionEngine.swift */,
 			);
@@ -88,11 +105,20 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		136F42DAF49833ACD2BFB96E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0EC45995C628BBCC4897955F /* ModelDownloaderTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		4F8A158C16F3047B68FD4843 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				68B1A2DCD26E742234419B54 /* RootView.swift */,
 				0788EA171105E9C64E8DF062 /* TranscriptionView.swift */,
+				0420067E5D486D6434C336DC /* TranscriptionView.swift~ */,
 				0BE36ED72C2E2829B65297A9 /* Components */,
 			);
 			path = Views;
@@ -110,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				145A65A7EA22425583D58AAA /* ParakeetTranscribe.app */,
+				5507CC1BCB4D589862282A8A /* ParakeetTranscribeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				29FB841B6DDAFEDDB2CFA1F3 /* Assets.xcassets */,
-				41D364DB54829D13CCB6ACA3 /* Models */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -153,6 +179,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		21417C4722E1B833B1836A49 /* ParakeetTranscribeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77EFBADE1E16369A131E8444 /* Build configuration list for PBXNativeTarget "ParakeetTranscribeTests" */;
+			buildPhases = (
+				138A6B1BC8DAFBF681701B2B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1A98769B4830FC6D97B44B7 /* PBXTargetDependency */,
+			);
+			name = ParakeetTranscribeTests;
+			packageProductDependencies = (
+			);
+			productName = ParakeetTranscribeTests;
+			productReference = 5507CC1BCB4D589862282A8A /* ParakeetTranscribeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DC1763415874B9E6914DF724 /* ParakeetTranscribe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA981B9836ADC021E8AF16F5 /* Build configuration list for PBXNativeTarget "ParakeetTranscribe" */;
@@ -180,6 +224,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					21417C4722E1B833B1836A49 = {
+						DevelopmentTeam = TA92TEWDS4;
+						ProvisioningStyle = Automatic;
+					};
 					DC1763415874B9E6914DF724 = {
 						DevelopmentTeam = TA92TEWDS4;
 						ProvisioningStyle = Automatic;
@@ -201,6 +249,7 @@
 			projectRoot = "";
 			targets = (
 				DC1763415874B9E6914DF724 /* ParakeetTranscribe */,
+				21417C4722E1B833B1836A49 /* ParakeetTranscribeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,13 +260,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D736B2CFF0CAA1E77F653619 /* Assets.xcassets in Resources */,
-				AD3846715E5DF9EB5D0224C4 /* Models in Resources */,
+				13064D5109668394B7674761 /* TranscriptionView.swift~ in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		138A6B1BC8DAFBF681701B2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B62F92B8507B5CA9E149CE /* ModelDownloaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5FEF179373E0CF5C18A72A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +284,7 @@
 				1681873FBD89B6558425D043 /* Encoder.swift in Sources */,
 				1B8B25FB673CE054499C4797 /* MLArray.swift in Sources */,
 				CC5783C8EF0A17D1BA0E8688 /* MicRecorder.swift in Sources */,
+				11DF1E5A88B87238DC03705F /* ModelDownloader.swift in Sources */,
 				FE24BB2BB7D14D13B46220D4 /* ModelRunner.swift in Sources */,
 				C02AEA7885148DA50B3A136B /* ParakeetTokenizer.swift in Sources */,
 				642AEE5F525DC90BAD9E89CC /* ParakeetTranscribeApp.swift in Sources */,
@@ -243,6 +301,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1A98769B4830FC6D97B44B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC1763415874B9E6914DF724 /* ParakeetTranscribe */;
+			targetProxy = 24AACDE33E5972D0F3C40071 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0320512BE6BFC853C0078A77 /* Release */ = {
@@ -324,6 +390,46 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2C1FF4D95C15D9B0692782CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdesai.ParakeetTranscribeTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParakeetTranscribe.app/ParakeetTranscribe";
+			};
+			name = Debug;
+		};
+		4410664C570BE4C0F02C9961 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdesai.ParakeetTranscribeTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParakeetTranscribe.app/ParakeetTranscribe";
 			};
 			name = Release;
 		};
@@ -419,6 +525,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		77EFBADE1E16369A131E8444 /* Build configuration list for PBXNativeTarget "ParakeetTranscribeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C1FF4D95C15D9B0692782CB /* Debug */,
+				4410664C570BE4C0F02C9961 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		7ACA5219FB5C1671D462FE97 /* Build configuration list for PBXProject "ParakeetTranscribe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

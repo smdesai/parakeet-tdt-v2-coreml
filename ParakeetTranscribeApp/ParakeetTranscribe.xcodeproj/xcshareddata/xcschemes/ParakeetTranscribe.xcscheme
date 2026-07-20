@@ -37,6 +37,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "21417C4722E1B833B1836A49"
+               BuildableName = "ParakeetTranscribeTests.xctest"
+               BlueprintName = "ParakeetTranscribeTests"
+               ReferencedContainer = "container:ParakeetTranscribe.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

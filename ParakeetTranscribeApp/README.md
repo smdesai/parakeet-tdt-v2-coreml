@@ -1,10 +1,13 @@
 # ParakeetTranscribe (iOS app)
 
-A SwiftUI iOS app that runs **NVIDIA Parakeet-TDT-v2 (0.6B)** entirely on-device,
-with the four CoreML models **bundled as app resources** (no runtime download).
-It reuses the `parakeet-transcribe` CLI's verified Strategy-C core (encoder windowing
-+ continuous TDT decode) and wraps it in the dark "aurora" UI from
-`parakeet-unified/apps/ParakeetASR`.
+A SwiftUI iOS app that runs **NVIDIA Parakeet-TDT-v2 (0.6B)** entirely on-device.
+The app installs small and **downloads the four CoreML models (~620 MB) from
+Hugging Face on first launch** ([`smdesai/parakeet-tdt-0.6b-v2-coreml`](https://huggingface.co/smdesai/parakeet-tdt-0.6b-v2-coreml)),
+showing a progress screen while it fetches them. After that first download the
+app works **fully offline** — every subsequent launch detects the on-disk models
+and goes straight to transcription. It reuses the `parakeet-transcribe` CLI's
+verified Strategy-C core (encoder windowing + continuous TDT decode) and wraps it
+in the dark "aurora" UI from `parakeet-unified/apps/ParakeetASR`.
 
 Two ways to transcribe, both on-device:
 
@@ -15,16 +18,29 @@ Two ways to transcribe, both on-device:
 
 ## Build & run on a device
 
+The models are **no longer staged into the app bundle** — there is no
+`stage-models.sh` step before the build. The app fetches the models from Hugging
+Face on first launch instead.
+
 ```bash
 cd ParakeetTranscribeApp
-./scripts/stage-models.sh        # copy ../parakeet_coreml_v2_final/*.mlmodelc + vocab into Resources/Models
 xcodegen generate                # project.yml -> ParakeetTranscribe.xcodeproj
 open ParakeetTranscribe.xcodeproj
 # In Xcode: select your device, ensure signing team (TA92TEWDS4 / your own), Run.
 ```
 
+On **first launch** the app downloads the four CoreML models + vocab (~620 MB)
+from [`smdesai/parakeet-tdt-0.6b-v2-coreml`](https://huggingface.co/smdesai/parakeet-tdt-0.6b-v2-coreml)
+into Application Support, behind a progress screen (determinate bar, "file X of
+N", MB counter, current file name). The app **requires a network connection on
+first run**; if the download is interrupted it resumes on the next launch (files
+already fully written are skipped by size). Every launch after the models are
+installed works **fully offline** and skips straight to model load.
+
 Requirements: Xcode 27+/iOS 17+ device (deployment target iOS 27.0, matching the
-reference app), ~590 MB free for the embedded models.
+reference app), a network connection on first run, and **~620 MB free** for the
+downloaded models (stored in Application Support, not bundled). The `.ipa` itself
+is now small — it no longer carries the model payload.
 
 ### Compile-check (no device)
 
@@ -32,6 +48,19 @@ reference app), ~590 MB free for the embedded models.
 xcodebuild -project ParakeetTranscribe.xcodeproj -scheme ParakeetTranscribe \
   -sdk iphoneos -configuration Debug -destination 'generic/platform=iOS' \
   CODE_SIGNING_ALLOWED=NO build
+```
+
+### Tests
+
+Pure-logic unit tests for the model-download planning seams live in `Tests/`
+(target `ParakeetTranscribeTests`, wired into the app scheme). They exercise the
+allowlist filter, resolve-URL construction, resume-by-size, and total-bytes
+accounting with a captured HF tree fixture — no CoreML, no live network. Run them
+from Xcode (Cmd-U) or:
+
+```bash
+xcodebuild test -project ParakeetTranscribe.xcodeproj -scheme ParakeetTranscribe \
+  -destination 'platform=iOS Simulator,name=iPhone 16'
 ```
 
 ## How the microphone uses the sliding window
@@ -62,23 +91,25 @@ Strategy-C accuracy. The on-device result matches the CLI.
 ## Source map
 
 ```
-project.yml                         XcodeGen config (iOS app, models as a folder reference)
-scripts/stage-models.sh             copy ../parakeet_coreml_v2_final -> Resources/Models
-Resources/Models/                   bundled .mlmodelc + parakeet_vocab.json (staged; ~585 MB)
+project.yml                         XcodeGen config (iOS app + ParakeetTranscribeTests unit-test target)
+scripts/stage-models.sh             (no longer part of the build) populates the HF source repo, not the bundle
 Resources/Assets.xcassets/          accent + launch colors, app icon slot
 Sources/
   App/ParakeetTranscribeApp.swift   @main; injects TranscriptionEngine; dark theme
   Theme/Theme.swift                 aurora palette + glassCard (from ParakeetASR)
-  Views/RootView.swift              background + progress / failure overlays
+  Views/RootView.swift              background + download / progress / failure overlays
   Views/TranscriptionView.swift     header, transcript card, RTFx metrics, mic + file buttons
   Views/Components/WaveformView.swift  rolling level meter
-  Engine/TranscriptionEngine.swift  ObservableObject; loads bundled models; file + mic flows
+  Engine/TranscriptionEngine.swift  ObservableObject; downloads then loads models; file + mic flows
+  Engine/ModelDownloader.swift      first-launch HF download (tree API + resolve URLs, resume, sentinel)
   Engine/MicRecorder.swift          AVAudioEngine capture -> AsyncStream<[Float]> @ 16 kHz + level
   Engine/AudioFileSamples.swift     security-scoped file URL -> mono 16 kHz [Float]
   Engine/StreamingTranscriber.swift incremental Strategy C (sliding window as audio arrives)
   Core/                             VERBATIM copies of the CLI core:
     Const, MLArray, ModelRunner, Encoder, TdtDecoder,
     WindowPlanner, ParakeetTokenizer, Transcriber
+Tests/
+  ModelDownloaderTests.swift        pure-logic tests for the downloader's planning seams
 ```
 
 The `Core/` files are unmodified copies of
@@ -90,7 +121,9 @@ empty-output → CPU-retry fix for the rare ANE onset-collapse
 
 ## Models
 
-Bundled from `../parakeet_coreml_v2_final` (the INT8-encoder pipeline):
+Downloaded on first launch from
+[`smdesai/parakeet-tdt-0.6b-v2-coreml`](https://huggingface.co/smdesai/parakeet-tdt-0.6b-v2-coreml)
+(the INT8-encoder pipeline), into Application Support (~620 MB, backup-excluded):
 
 | Model | Size | Role |
 |-------|------|------|
