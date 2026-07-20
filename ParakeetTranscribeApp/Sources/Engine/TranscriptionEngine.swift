@@ -18,7 +18,8 @@ final class TranscriptionEngine: ObservableObject {
 
     enum Phase: Equatable {
         case idle
-        case preparing
+        case downloading(DownloadProgress)   // NEW — first-run model fetch
+        case preparing                       // compile + map weights
         case ready
         case transcribing
         case recording
@@ -49,6 +50,13 @@ final class TranscriptionEngine: ObservableObject {
     var isTranscribing: Bool { phase == .transcribing }
     var isRecording: Bool   { phase == .recording }
     var isReady: Bool       { if case .ready = phase { return true }; return false }
+    var isDownloading: Bool { if case .downloading = phase { return true }; return false }
+
+    /// The latest download progress snapshot, or nil when not downloading.
+    var downloadProgress: DownloadProgress? {
+        if case .downloading(let p) = phase { return p }
+        return nil
+    }
 
     // Heavy objects live on the worker queue; never touched from the main actor
     // after construction.
@@ -57,20 +65,36 @@ final class TranscriptionEngine: ObservableObject {
     private var tokenizer: ParakeetTokenizer?
     private let worker = DispatchQueue(label: "com.sdesai.parakeet.transcribe", qos: .userInitiated)
 
+    // Fetches the model bundle from Hugging Face on first launch; no-op once
+    // the on-disk `.complete` sentinel is present.
+    private let downloader = ModelDownloader()
+
     // Mic streaming state.
     private let recorder = MicRecorder()
     private var recordingTask: Task<Void, Never>?
 
     // MARK: - model preparation
 
-    /// Load the bundled models once. Safe to call repeatedly (no-op when ready).
+    /// Download the model bundle if needed, then load the models once. Safe to
+    /// call repeatedly (no-op when ready and a no-restart when a download is
+    /// already in flight). Retry from the failure overlay re-enters here and
+    /// resumes the download (already-downloaded files are skipped by size).
     func prepareIfNeeded() async {
         switch phase {
-        case .ready, .preparing, .transcribing, .recording: return
+        case .ready, .downloading, .preparing, .transcribing, .recording: return
         default: break
         }
-        phase = .preparing
         do {
+            // First-run model fetch. `ensureInstalled` returns immediately once
+            // the `.complete` sentinel is present, so normal launches skip this.
+            if !ModelDownloader.isInstalled() {
+                phase = .downloading(.zero)
+                try await downloader.ensureInstalled { [weak self] p in
+                    self?.phase = .downloading(p)
+                }
+            }
+            // Compile + map the (now on-disk) models.
+            phase = .preparing
             let loaded = try await loadModels()
             self.runner = loaded.runner
             self.tokenizer = loaded.tokenizer
@@ -91,7 +115,7 @@ final class TranscriptionEngine: ObservableObject {
         try await withCheckedThrowingContinuation { cont in
             worker.async {
                 do {
-                    let modelsDir = try Self.bundledModelsDir()
+                    let modelsDir = try Self.modelsDir()
                     let vocabURL = modelsDir.appendingPathComponent("parakeet_vocab.json")
                     let runner = try ModelRunner(modelsDir: modelsDir, computeUnits: .all)
                     let tokenizer = try ParakeetTokenizer(contentsOf: vocabURL)
@@ -110,16 +134,16 @@ final class TranscriptionEngine: ObservableObject {
         }
     }
 
-    /// The folder reference copies `Resources/Models` verbatim into the bundle.
-    private static func bundledModelsDir() throws -> URL {
-        guard let resources = Bundle.main.resourceURL else {
-            throw EngineError.missingModels("app resources unavailable")
-        }
-        let dir = resources.appendingPathComponent("Models", isDirectory: true)
+    /// The single production seam that resolves where models live. Models are
+    /// downloaded from Hugging Face on first launch into a writable directory
+    /// under Application Support (see `ModelDownloader`); that install root is
+    /// the flat `modelsDir` the rest of the pipeline consumes.
+    private static func modelsDir() throws -> URL {
+        let dir = ModelDownloader.rootDirectory()
         let encoder = dir.appendingPathComponent("parakeet_encoder.mlmodelc")
         guard FileManager.default.fileExists(atPath: encoder.path) else {
             throw EngineError.missingModels(
-                "bundled models not found at \(dir.path) — run scripts/stage-models.sh before building")
+                "model download incomplete at \(dir.path) — re-launch the app to resume the download")
         }
         return dir
     }

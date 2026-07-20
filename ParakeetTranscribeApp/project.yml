@@ -24,15 +24,17 @@ targets:
     sources:
       - path: Sources
       - path: Resources/Assets.xcassets
-      # Bundled Parakeet-TDT-v2 CoreML models (INT8 encoder pipeline). Staged by
-      # scripts/stage-models.sh into Resources/Models as compiled .mlmodelc +
-      # parakeet_vocab.json. `type: folder` adds a folder reference so the tree
-      # is copied verbatim into the app bundle (no runtime download).
-      - path: Resources/Models
-        type: folder
-        buildPhase: resources
+      # NOTE: The ~620 MB Parakeet-TDT-v2 CoreML models are no longer bundled
+      # into the app. They are downloaded from Hugging Face
+      # (smdesai/parakeet-tdt-0.6b-v2-coreml) into Application Support on first
+      # launch by Sources/Engine/ModelDownloader.swift. The former
+      # `Resources/Models` (type: folder) resource entry has been removed so the
+      # models are not copied into the bundle. The on-disk Resources/Models
+      # directory is intentionally left in place (it is simply no longer
+      # referenced by the build).
     scheme:
-      testTargets: []
+      testTargets:
+        - ParakeetTranscribeTests
       gatherCoverageData: false
     info:
       path: Generated/Info.plist
@@ -66,3 +68,28 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         ENABLE_USER_SCRIPT_SANDBOXING: YES
         SWIFT_VERSION: "5.0"
+
+  # App-hosted XCTest bundle. The tests are pure-logic (no CoreML, no network),
+  # but we host them in the app so `@testable import ParakeetTranscribe` can
+  # reach ModelDownloader's `internal` planning API. GENERATE_INFOPLIST_FILE is
+  # left at its default (YES) so xcodegen/Xcode synthesizes the test bundle's
+  # Info.plist automatically.
+  ParakeetTranscribeTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: Tests
+    dependencies:
+      - target: ParakeetTranscribe
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sdesai.ParakeetTranscribeTests
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.0"
+        GENERATE_INFOPLIST_FILE: YES
+        # App-hosted unit test: run inside the ParakeetTranscribe app process so
+        # @testable import can see the app's internal symbols.
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/ParakeetTranscribe.app/ParakeetTranscribe"
+        BUNDLE_LOADER: "$(TEST_HOST)"
