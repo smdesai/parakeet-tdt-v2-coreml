@@ -12,16 +12,21 @@ final class Transcriber {
     let modelsDir: URL
     let primaryIsCPU: Bool
 
+    /// Optional keyword booster (shallow fusion). nil => baseline decode, wired
+    /// unchanged into every strategy and the CPU fallback.
+    let booster: KeywordBooster?
+
     /// Lazily-built CPU(fp32) runner, used only on the rare empty-output retry.
     private var cpuRunner: ModelRunner?
 
     init(runner: ModelRunner, tokenizer: ParakeetTokenizer, ctxSamples: Int,
-         modelsDir: URL, primaryIsCPU: Bool) {
+         modelsDir: URL, primaryIsCPU: Bool, booster: KeywordBooster? = nil) {
         self.runner = runner
         self.tokenizer = tokenizer
         self.ctxSamples = ctxSamples
         self.modelsDir = modelsDir
         self.primaryIsCPU = primaryIsCPU
+        self.booster = booster
     }
 
     /// Strategy C (recommended): overlapping windows + ONE continuous TDT decode.
@@ -48,17 +53,16 @@ final class Transcriber {
         // Three-stage pipeline, one engine per stage, so all three stay busy:
         //   stage 1 (preprocess, CPU+GPU) -> stage 2 (encode, ANE) -> stage 3
         //   (TDT decode, CPU) on this thread.
-        // Running them concurrently lets the ANE encoder run back-to-back instead
-        // of stalling per window while the preprocessor runs, and hides the decode
-        // under the encode. The windows are produced in the same order with the
-        // same values, and the resumable decoder runs the identical state machine,
-        // so the emitted token sequence is byte-identical to the sequential
-        // `Encoder.encode` + `TdtDecoder.decode` path. (Ported from the
-        // parakeet-transcribe CLI, where it lifted RTFx 155x→312x.)
+        // Previously stage 1+2 ran serially on one producer thread, leaving the ANE
+        // idle for every ~15ms preprocess; splitting them lets the encoder run
+        // back-to-back so the per-window preprocess hides under it. The windows are
+        // produced in the same order with the same values, and the resumable
+        // decoder runs the identical state machine, so the emitted token sequence
+        // is byte-identical to `Encoder.encode` + `TdtDecoder.decode`.
         let encoder = Encoder(runner: runner, planner: planner)
         let melQueue = BoundedQueue<Encoder.PreprocessedWindow>(capacity: 4)
         let sliceQueue = BoundedQueue<Encoder.Slice>(capacity: 8)
-        let decoder = try StreamingTdtDecoder(runner: runner)
+        let decoder = try StreamingTdtDecoder(runner: runner, booster: booster)
 
         // Stage 1: preprocess every planned window, in order.
         let preThread = Thread {
@@ -111,7 +115,8 @@ final class Transcriber {
     func transcribeBaseline(_ wav: [Float]) throws -> String {
         let planner = WindowPlanner(ctxSamples: 0)         // center == full window
         let encoder = Encoder(runner: runner, planner: planner)
-        let decoder = TdtDecoder(runner: runner)
+        var decoder = TdtDecoder(runner: runner)
+        decoder.booster = booster
         var parts: [String] = []
         for spec in planner.plan(nSamples: wav.count) {
             // Encode just this one window as a standalone stream.

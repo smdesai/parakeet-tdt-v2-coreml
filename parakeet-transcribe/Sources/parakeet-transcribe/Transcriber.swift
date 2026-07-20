@@ -12,16 +12,21 @@ final class Transcriber {
     let modelsDir: URL
     let primaryIsCPU: Bool
 
+    /// Optional keyword booster (shallow fusion). nil => baseline decode, wired
+    /// unchanged into every strategy and the CPU fallback.
+    let booster: KeywordBooster?
+
     /// Lazily-built CPU(fp32) runner, used only on the rare empty-output retry.
     private var cpuRunner: ModelRunner?
 
     init(runner: ModelRunner, tokenizer: ParakeetTokenizer, ctxSamples: Int,
-         modelsDir: URL, primaryIsCPU: Bool) {
+         modelsDir: URL, primaryIsCPU: Bool, booster: KeywordBooster? = nil) {
         self.runner = runner
         self.tokenizer = tokenizer
         self.ctxSamples = ctxSamples
         self.modelsDir = modelsDir
         self.primaryIsCPU = primaryIsCPU
+        self.booster = booster
     }
 
     /// Strategy C (recommended): overlapping windows + ONE continuous TDT decode.
@@ -57,7 +62,7 @@ final class Transcriber {
         let encoder = Encoder(runner: runner, planner: planner)
         let melQueue = BoundedQueue<Encoder.PreprocessedWindow>(capacity: 4)
         let sliceQueue = BoundedQueue<Encoder.Slice>(capacity: 8)
-        let decoder = try StreamingTdtDecoder(runner: runner)
+        let decoder = try StreamingTdtDecoder(runner: runner, booster: booster)
 
         // Stage 1: preprocess every planned window, in order.
         let preThread = Thread {
@@ -110,7 +115,8 @@ final class Transcriber {
     func transcribeBaseline(_ wav: [Float]) throws -> String {
         let planner = WindowPlanner(ctxSamples: 0)         // center == full window
         let encoder = Encoder(runner: runner, planner: planner)
-        let decoder = TdtDecoder(runner: runner)
+        var decoder = TdtDecoder(runner: runner)
+        decoder.booster = booster
         var parts: [String] = []
         for spec in planner.plan(nSamples: wav.count) {
             // Encode just this one window as a standalone stream.

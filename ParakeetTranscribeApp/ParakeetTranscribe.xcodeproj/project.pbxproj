@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13064D5109668394B7674761 /* TranscriptionView.swift~ in Resources */ = {isa = PBXBuildFile; fileRef = 0420067E5D486D6434C336DC /* TranscriptionView.swift~ */; };
 		1681873FBD89B6558425D043 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24309F7160B6EECE2722824B /* Encoder.swift */; };
 		1B8B25FB673CE054499C4797 /* MLArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041854D8E5E5CF21C2506A5 /* MLArray.swift */; };
 		352F4B5673CED360F747FB5E /* StreamingTranscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E1746FA02987660250E43 /* StreamingTranscriber.swift */; };
@@ -15,6 +16,7 @@
 		615D6A514634DE7A4EBFE18A /* Transcriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E4EE17D73E8009A136AC6 /* Transcriber.swift */; };
 		642AEE5F525DC90BAD9E89CC /* ParakeetTranscribeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C9E0F413CAA53E0387497 /* ParakeetTranscribeApp.swift */; };
 		680F96F3BB76175F38B8D590 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD5FC982E8A065E73568237 /* Const.swift */; };
+		6A8F08307E36356AC3CB220C /* KeywordBooster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D37A5E98677543502F2BDA0 /* KeywordBooster.swift */; };
 		6AF3EF63455AC67BA3825CEE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84669B1944E333E76472F35F /* Theme.swift */; };
 		961BD89109E12276D92A2F0F /* AudioFileSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E3A8BAF90A958651AC2F7 /* AudioFileSamples.swift */; };
 		9CB6C5BD449BD4C319E68001 /* TranscriptionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70697E2262FBD94D6826390A /* TranscriptionEngine.swift */; };
@@ -29,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0420067E5D486D6434C336DC /* TranscriptionView.swift~ */ = {isa = PBXFileReference; path = "TranscriptionView.swift~"; sourceTree = "<group>"; };
 		0788EA171105E9C64E8DF062 /* TranscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionView.swift; sourceTree = "<group>"; };
 		145A65A7EA22425583D58AAA /* ParakeetTranscribe.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ParakeetTranscribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C9E0F413CAA53E0387497 /* ParakeetTranscribeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParakeetTranscribeApp.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		7AD5FC982E8A065E73568237 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		84669B1944E333E76472F35F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		868E1746FA02987660250E43 /* StreamingTranscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTranscriber.swift; sourceTree = "<group>"; };
+		8D37A5E98677543502F2BDA0 /* KeywordBooster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordBooster.swift; sourceTree = "<group>"; };
 		944E4EE17D73E8009A136AC6 /* Transcriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcriber.swift; sourceTree = "<group>"; };
 		9E460BBEBB473F10A6C8E00E /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		A041854D8E5E5CF21C2506A5 /* MLArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLArray.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			children = (
 				68B1A2DCD26E742234419B54 /* RootView.swift */,
 				0788EA171105E9C64E8DF062 /* TranscriptionView.swift */,
+				0420067E5D486D6434C336DC /* TranscriptionView.swift~ */,
 				0BE36ED72C2E2829B65297A9 /* Components */,
 			);
 			path = Views;
@@ -119,6 +124,7 @@
 			children = (
 				7AD5FC982E8A065E73568237 /* Const.swift */,
 				24309F7160B6EECE2722824B /* Encoder.swift */,
+				8D37A5E98677543502F2BDA0 /* KeywordBooster.swift */,
 				A041854D8E5E5CF21C2506A5 /* MLArray.swift */,
 				F5EF8DCC6642F7F4C8625B8D /* ModelRunner.swift */,
 				59676DA8CC787EDCA029D197 /* ParakeetTokenizer.swift */,
@@ -212,6 +218,7 @@
 			files = (
 				D736B2CFF0CAA1E77F653619 /* Assets.xcassets in Resources */,
 				AD3846715E5DF9EB5D0224C4 /* Models in Resources */,
+				13064D5109668394B7674761 /* TranscriptionView.swift~ in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +232,7 @@
 				961BD89109E12276D92A2F0F /* AudioFileSamples.swift in Sources */,
 				680F96F3BB76175F38B8D590 /* Const.swift in Sources */,
 				1681873FBD89B6558425D043 /* Encoder.swift in Sources */,
+				6A8F08307E36356AC3CB220C /* KeywordBooster.swift in Sources */,
 				1B8B25FB673CE054499C4797 /* MLArray.swift in Sources */,
 				CC5783C8EF0A17D1BA0E8688 /* MicRecorder.swift in Sources */,
 				FE24BB2BB7D14D13B46220D4 /* ModelRunner.swift in Sources */,

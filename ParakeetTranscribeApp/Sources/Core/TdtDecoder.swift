@@ -12,12 +12,22 @@ import Foundation
 struct TdtDecoder {
     let runner: ModelRunner
 
+    /// Optional keyword booster (shallow fusion). When nil or empty, the decode is
+    /// byte-identical to the baseline (plain `runJoint` argmax path).
+    var booster: KeywordBooster? = nil
+
     /// Decode the whole stream into emitted text token ids (blanks filtered out).
     func decode(_ stream: EncodedStream) throws -> [Int] {
         guard stream.frames > 0 else { return [] }
 
         var timeIdx = 0
         var tokens: [Int] = []
+
+        // Keyword-boost bookkeeping. `generated` is the parallel Int32 token history
+        // the booster matches against; `boosting` is resolved once so the hot loop
+        // never pays for the optional/empty check per frame.
+        var generated: [Int32] = []
+        let boosting = (booster.map { !$0.isEmpty }) ?? false
 
         // Per-FRAME emission tracking (NOT a global counter). The force-blank guard
         // must only fire when too many tokens land on the *same* frame; counting
@@ -40,9 +50,19 @@ struct TdtDecoder {
         while timeIdx < stream.frames {
             runner.fillEncoderStep(encStep, from: stream.data,
                                    channels: stream.channels, frames: stream.frames, frame: timeIdx)
-            let decision = try runner.runJoint(encoderStep: encStep, decoderOutput: state.output)
-            let tok = decision.tokenId
-            var dur = mapDuration(decision.duration)
+            let tok: Int
+            var dur: Int
+            if boosting {
+                // Boosted path: read raw logits, add keyword bonuses, then argmax.
+                let step = try runner.runJointLogits(encoderStep: encStep, decoderOutput: state.output)
+                let bonuses = booster!.nextTokenBonuses(generated: generated)
+                tok = MLArray.argmax(logits: step.logits, count: Const.vocabSize + 1, bonuses: bonuses)
+                dur = mapDuration(step.duration)
+            } else {
+                let decision = try runner.runJoint(encoderStep: encStep, decoderOutput: state.output)
+                tok = decision.tokenId
+                dur = mapDuration(decision.duration)
+            }
 
             if tok == Const.blankId {
                 // Blank: advance time, do NOT update the decoder LSTM (silence
@@ -58,6 +78,7 @@ struct TdtDecoder {
 
                 let emitFrame = timeIdx
                 tokens.append(tok)
+                if boosting { generated.append(Int32(tok)) }       // extend booster history
                 try runner.runDecoder(token: tok, state: &state)   // update predictor
                 timeIdx += dur                                     // TDT: token also skips `dur` frames
 
@@ -94,18 +115,24 @@ final class StreamingTdtDecoder {
     private let runner: ModelRunner
     private let channels: Int
 
+    /// Optional keyword booster (shallow fusion). nil/empty => byte-identical to the
+    /// baseline (plain `runJoint` argmax path). See `KeywordBooster`.
+    var booster: KeywordBooster? = nil
+
     private var frames: [Float] = []   // FRAME-major
     private var availFrames = 0
     private var timeIdx = 0
     private var tokens: [Int] = []
+    private var generated: [Int32] = []   // parallel booster history (boosted path)
     private var state: ModelRunner.DecoderState
     private var lastEmissionFrame = -1
     private var emissionsAtThisFrame = 0
     private let encStep: MLMultiArray
     private let durBins = Const.durationBins
 
-    init(runner: ModelRunner) throws {
+    init(runner: ModelRunner, booster: KeywordBooster? = nil) throws {
         self.runner = runner
+        self.booster = booster
         self.channels = Const.encoderChannels
         self.encStep = runner.makeEncoderStep()
         self.state = runner.freshDecoderState()
@@ -132,11 +159,21 @@ final class StreamingTdtDecoder {
     /// Advance the decode over all currently-available frames. Safe to call
     /// repeatedly as more slices are appended.
     func decodeAvailable() throws {
+        let boosting = (booster.map { !$0.isEmpty }) ?? false
         while timeIdx < availFrames {
             fillStep(frame: timeIdx)
-            let decision = try runner.runJoint(encoderStep: encStep, decoderOutput: state.output)
-            let tok = decision.tokenId
-            var dur = mapDuration(decision.duration)
+            let tok: Int
+            var dur: Int
+            if boosting {
+                let step = try runner.runJointLogits(encoderStep: encStep, decoderOutput: state.output)
+                let bonuses = booster!.nextTokenBonuses(generated: generated)
+                tok = MLArray.argmax(logits: step.logits, count: Const.vocabSize + 1, bonuses: bonuses)
+                dur = mapDuration(step.duration)
+            } else {
+                let decision = try runner.runJoint(encoderStep: encStep, decoderOutput: state.output)
+                tok = decision.tokenId
+                dur = mapDuration(decision.duration)
+            }
 
             if tok == Const.blankId {
                 if dur == 0 { dur = 1 }
@@ -147,6 +184,7 @@ final class StreamingTdtDecoder {
                 }
                 let emitFrame = timeIdx
                 tokens.append(tok)
+                if boosting { generated.append(Int32(tok)) }
                 try runner.runDecoder(token: tok, state: &state)
                 timeIdx += dur
 

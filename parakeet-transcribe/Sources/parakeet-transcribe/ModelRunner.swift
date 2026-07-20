@@ -22,7 +22,14 @@ final class ModelRunner {
     let decoder: MLModel
     let joint: MLModel
 
+    /// Directory / compute units captured at init so lazy models (the optional
+    /// logits-emitting joint) can load with the same configuration on first use.
+    private let modelsDir: URL
+    private let computeUnits: MLComputeUnits
+
     init(modelsDir: URL, computeUnits: MLComputeUnits = .all) throws {
+        self.modelsDir = modelsDir
+        self.computeUnits = computeUnits
         // Per-model compute-unit override for diagnosis, e.g.
         //   PARAKEET_CU_parakeet_encoder=cpu  forces just the encoder onto CPU.
         func cuOverride(_ name: String) -> MLComputeUnits? {
@@ -50,6 +57,35 @@ final class ModelRunner {
         self.decoder      = try load("parakeet_decoder")
         self.joint        = try load("parakeet_joint_decision_single_step")
     }
+
+    /// Per-model compute-unit override (same env convention as `init`'s local
+    /// `cuOverride`), factored out so lazy loaders can reuse it.
+    private func cuOverride(_ name: String) -> MLComputeUnits? {
+        guard let v = ProcessInfo.processInfo.environment["PARAKEET_CU_\(name)"] else { return nil }
+        switch v.lowercased() {
+        case "cpu": return .cpuOnly
+        case "cpugpu", "cpu_gpu": return .cpuAndGPU
+        case "ane", "cpuane", "cpu_ane": return .cpuAndNeuralEngine
+        case "all": return .all
+        default: return nil
+        }
+    }
+
+    /// Non-throwing loader: returns nil if the `.mlmodelc` is missing or fails to
+    /// load, instead of throwing like `init`'s `load`. Used for the OPTIONAL
+    /// logits-emitting joint, which only exists after the word-boost re-export.
+    private func loadOptional(_ name: String) -> MLModel? {
+        let url = modelsDir.appendingPathComponent(name + ".mlmodelc")
+        guard FileManager.default.fileExists(atPath: url.path) else { return nil }
+        let cfg = MLModelConfiguration()
+        cfg.computeUnits = cuOverride(name) ?? computeUnits
+        return try? MLModel(contentsOf: url, configuration: cfg)
+    }
+
+    /// The optional joint variant that emits the raw token-logit vector (instead of
+    /// argmaxing internally), needed for keyword-boosted decode. Loaded lazily and
+    /// only present when the word-boost re-export produced it; nil otherwise.
+    private lazy var jointLogits: MLModel? = loadOptional("parakeet_joint_logits_single_step")
 
     // MARK: typed dtype lookups (queried once)
 
@@ -153,6 +189,33 @@ final class ModelRunner {
             let dur = out.featureValue(for: "duration")?.multiArrayValue
         else { throw ModelError.missingOutput("token_id/duration") }
         return JointDecision(tokenId: MLArray.firstInt(tok), duration: MLArray.firstInt(dur))
+    }
+
+    // MARK: joint_logits_single_step (OPTIONAL, word-boost only)
+    //   encoder_step[1,1024,1] + decoder_step[1,640,1]
+    //     -> token_logits[1,1,1,1025] (raw, NOT argmaxed) + duration[1,1,1]
+    // Unlike `runJoint`, this returns the raw token logits so the caller can apply
+    // keyword bonuses before argmax. Duration is still argmaxed in-graph (only the
+    // token needs biasing). Present only after the word-boost re-export.
+
+    struct JointStep { let logits: MLMultiArray; let duration: Int }
+
+    /// Predict the raw token-logit vector + duration for one (encoder, decoder) step.
+    /// Throws `ModelError.load` with a clear remediation message if the optional
+    /// logits joint was not exported. `encoderStep` is a reusable [1,1024,1] array
+    /// filled by the caller (identical construction to `runJoint`).
+    func runJointLogits(encoderStep: MLMultiArray, decoderOutput: [Float]) throws -> JointStep {
+        guard let model = jointLogits else {
+            throw ModelError.load(
+                "parakeet_joint_logits_single_step.mlmodelc missing — run the re-export; see docs/word-boost.md")
+        }
+        let decStep = MLArray.float(decoderOutput, shape: [1, Const.decoderHidden, 1], dataType: decStepType)
+        let out = try predict(model, ["encoder_step": encoderStep, "decoder_step": decStep])
+        guard
+            let logits = out.featureValue(for: "token_logits")?.multiArrayValue,
+            let dur = out.featureValue(for: "duration")?.multiArrayValue
+        else { throw ModelError.missingOutput("token_logits/duration") }
+        return JointStep(logits: logits, duration: MLArray.firstInt(dur))
     }
 
     func makeEncoderStep() -> MLMultiArray {

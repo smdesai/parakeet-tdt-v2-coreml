@@ -1,3 +1,4 @@
+import Accelerate
 import CoreML
 import Foundation
 
@@ -97,6 +98,86 @@ enum MLArray {
             }
         }
         return out
+    }
+
+    /// Argmax over the first `count` token logits, with optional additive keyword
+    /// bonuses (shallow fusion). `count` is the number of token logits to scan —
+    /// pass `Const.vocabSize + 1` (== 1025) so the blank id (index 1024) stays
+    /// selectable.
+    ///
+    /// Parity contract: when `bonuses` is empty this returns the PLAIN argmax over
+    /// the raw logits, identical to the joint model's internal argmax. When
+    /// non-empty, we take the plain argmax (fast vDSP path on fp32, the joint's
+    /// CPU_ONLY output dtype) and then compare only the small set of boosted ids
+    /// against the current winner — so the cost is O(count) + O(#bonuses), not
+    /// O(count · #bonuses). Out-of-range boosted ids (t < 0 || t >= count) are
+    /// ignored.
+    static func argmax(logits: MLMultiArray, count: Int, bonuses: [Int32: Float]) -> Int {
+        precondition(count > 0, "argmax needs a positive count")
+        let n = min(count, logits.count)
+
+        // 1) Plain max over the raw logits, dtype-aware.
+        var bestIdx = 0
+        var bestVal: Float = -.greatestFiniteMagnitude
+
+        switch logits.dataType {
+        case .float32 where logits.strides.last?.intValue == 1:
+            logits.withUnsafeBytes { raw in
+                let p = raw.bindMemory(to: Float32.self)
+                var maxVal: Float = 0
+                var maxIdx: vDSP_Length = 0
+                vDSP_maxvi(p.baseAddress!, 1, &maxVal, &maxIdx, vDSP_Length(n))
+                bestVal = maxVal
+                bestIdx = Int(maxIdx)
+            }
+        case .float16 where logits.strides.last?.intValue == 1:
+            logits.withUnsafeBytes { raw in
+                let p = raw.bindMemory(to: Float16.self)
+                for i in 0..<n {
+                    let v = Float(p[i])
+                    if v > bestVal { bestVal = v; bestIdx = i }
+                }
+            }
+        default:
+            // Strided / other dtype: fall back to a stride-correct float read.
+            let vals = floats(logits)
+            for i in 0..<n {
+                let v = vals[i]
+                if v > bestVal { bestVal = v; bestIdx = i }
+            }
+        }
+
+        // 2) Empty bonuses => plain argmax (byte-identical baseline parity).
+        if bonuses.isEmpty { return bestIdx }
+
+        // 3) Non-empty: only the boosted ids can change the winner. Read each
+        //    boosted id's raw logit, add its bonus, and keep the best. Ties resolve
+        //    to the plain winner (strictly-greater comparison, plain max seeded).
+        for (id, bonus) in bonuses {
+            let t = Int(id)
+            guard t >= 0, t < n else { continue }   // bounds-guard boosted ids
+            let raw = rawLogit(logits, at: t)
+            let boosted = raw + bonus
+            if boosted > bestVal { bestVal = boosted; bestIdx = t }
+        }
+        return bestIdx
+    }
+
+    /// Single logit at a flat index, respecting the last-axis stride and dtype.
+    /// Used by `argmax` to re-read only the boosted ids without materializing the
+    /// whole vector.
+    @inline(__always)
+    private static func rawLogit(_ arr: MLMultiArray, at index: Int) -> Float {
+        let stride = arr.strides.last?.intValue ?? 1
+        let off = index * stride
+        return arr.withUnsafeBytes { raw -> Float in
+            switch arr.dataType {
+            case .float16: return Float(raw.load(fromByteOffset: off * 2, as: Float16.self))
+            case .float32: return raw.load(fromByteOffset: off * 4, as: Float32.self)
+            case .float64, .double: return Float(raw.load(fromByteOffset: off * 8, as: Float64.self))
+            default: return 0
+            }
+        }
     }
 
     /// Fill a [1, channels, 1] encoder-step array from a flat C-major buffer:
