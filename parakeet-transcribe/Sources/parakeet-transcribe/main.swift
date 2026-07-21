@@ -1,5 +1,6 @@
 import CoreML
 import Foundation
+import ParakeetCore
 
 // parakeet-transcribe — standalone long-form Parakeet-TDT-v2 transcriber.
 //   parakeet-transcribe --models <dir> --audio <file> [--ctx-s 2.5] [--baseline]

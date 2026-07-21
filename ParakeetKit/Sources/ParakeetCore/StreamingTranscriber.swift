@@ -22,7 +22,7 @@ import Foundation
 /// `WindowPlanner`'s short-audio fast path.
 ///
 /// NOT thread-safe: drive it from one serial queue (the engine's worker).
-final class StreamingTranscriber {
+public final class StreamingTranscriber {
     let runner: ModelRunner
     let tokenizer: ParakeetTokenizer
 
@@ -47,7 +47,7 @@ final class StreamingTranscriber {
     private let encStep: MLMultiArray
     private let melInputType: MLMultiArrayDataType
 
-    init(runner: ModelRunner, tokenizer: ParakeetTokenizer, ctxSamples: Int) throws {
+    public init(runner: ModelRunner, tokenizer: ParakeetTokenizer, ctxSamples: Int) throws {
         self.runner = runner
         self.tokenizer = tokenizer
         self.winSamples = Const.winSamples
@@ -65,12 +65,12 @@ final class StreamingTranscriber {
     }
 
     /// Append newly-recorded samples (a delta, not the whole buffer).
-    func appendAudio(_ samples: [Float]) {
+    public func appendAudio(_ samples: [Float]) {
         wav.append(contentsOf: samples)
     }
 
     /// Total seconds of audio accumulated so far.
-    var audioSeconds: Double { Double(wav.count) / Double(Const.sampleRate) }
+    public var audioSeconds: Double { Double(wav.count) / Double(Const.sampleRate) }
 
     /// The full accumulated buffer (for a final batch fallback if needed).
     var fullBuffer: [Float] { wav }
@@ -78,7 +78,7 @@ final class StreamingTranscriber {
     /// Encode any windows whose full span is now recorded, decode the new frames,
     /// and return the transcript so far. Call with `isFinal: true` once recording
     /// has stopped to flush the trailing (right-context-less) window.
-    func transcribeAvailable(isFinal: Bool) throws -> String {
+    public func transcribeAvailable(isFinal: Bool) throws -> String {
         let n = wav.count
 
         if isFinal {
@@ -116,7 +116,7 @@ final class StreamingTranscriber {
         return currentText()
     }
 
-    func currentText() -> String { tokenizer.text(for: emitted) }
+    public func currentText() -> String { tokenizer.text(for: emitted) }
 
     // MARK: - per-window encode (mirrors Encoder.swift, frame-major output)
 

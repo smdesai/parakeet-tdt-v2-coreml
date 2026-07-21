@@ -16,13 +16,13 @@ enum ModelError: Error, CustomStringConvertible {
 /// All float I/O is Float32 and all int I/O is Int32 per the verified metadata
 /// (spec §1.1, §9), but the dtype is queried per input so the code survives a
 /// re-export to fp16. Outputs are read stride-aware (ANE buffers can be padded).
-final class ModelRunner {
+public final class ModelRunner {
     let preprocessor: MLModel
     let encoder: MLModel
     let decoder: MLModel
     let joint: MLModel
 
-    init(modelsDir: URL, computeUnits: MLComputeUnits = .all) throws {
+    public init(modelsDir: URL, computeUnits: MLComputeUnits = .all) throws {
         // Per-model compute-unit override for diagnosis, e.g.
         //   PARAKEET_CU_parakeet_encoder=cpu  forces just the encoder onto CPU.
         func cuOverride(_ name: String) -> MLComputeUnits? {
@@ -194,14 +194,21 @@ final class ModelRunner {
 ///
 /// Always-on (env vars don't reach an untethered device); `reset()` before each
 /// run, `snapshot()` after. Thread-safe (recorded from all three stage threads).
-enum Profile {
-    struct Stage: Equatable { let label: String; let seconds: Double; let calls: Int }
+public enum Profile {
+    public struct Stage: Equatable {
+        public let label: String
+        public let seconds: Double
+        public let calls: Int
+        public init(label: String, seconds: Double, calls: Int) {
+            self.label = label; self.seconds = seconds; self.calls = calls
+        }
+    }
 
     private static var times: [String: Double] = [:]
     private static var counts: [String: Int] = [:]
     private static let lock = NSLock()
 
-    static func reset() {
+    public static func reset() {
         lock.lock(); defer { lock.unlock() }
         times.removeAll(keepingCapacity: true)
         counts.removeAll(keepingCapacity: true)
@@ -214,10 +221,29 @@ enum Profile {
     }
 
     /// Per-stage busy times, sorted descending by time.
-    static func snapshot() -> [Stage] {
+    public static func snapshot() -> [Stage] {
         lock.lock(); defer { lock.unlock() }
         return times.keys
             .map { Stage(label: $0, seconds: times[$0]!, calls: counts[$0]!) }
             .sorted { $0.seconds > $1.seconds }
+    }
+
+    /// Human-readable per-model timing to stderr, gated on PARAKEET_PROFILE=1.
+    /// Used by the CLI (`main.swift`) after a run; a no-op unless the env var is
+    /// set, so it costs nothing on the app's untethered path (env vars don't reach
+    /// an untethered device anyway — the app reads `snapshot()` instead).
+    public static func report() {
+        guard ProcessInfo.processInfo.environment["PARAKEET_PROFILE"] == "1" else { return }
+        let stages = snapshot()
+        let total = stages.reduce(0) { $0 + $1.seconds }
+        var lines = ["--- model profile (PARAKEET_PROFILE) ---"]
+        for s in stages {
+            lines.append(String(format: "  %-12@ %8.3fs  %6d calls  %5.2fms/call  %5.1f%%",
+                                s.label as NSString, s.seconds, s.calls,
+                                s.seconds / Double(max(1, s.calls)) * 1000,
+                                total > 0 ? s.seconds / total * 100 : 0))
+        }
+        lines.append(String(format: "  %-12@ %8.3fs in-model total", "TOTAL" as NSString, total))
+        FileHandle.standardError.write(Data((lines.joined(separator: "\n") + "\n").utf8))
     }
 }

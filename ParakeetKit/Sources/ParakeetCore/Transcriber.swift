@@ -2,7 +2,7 @@ import CoreML
 import Foundation
 
 /// Ties encoder + TDT decode + detokenize into the two strategies (spec §3).
-final class Transcriber {
+public final class Transcriber {
     let runner: ModelRunner
     let tokenizer: ParakeetTokenizer
     let ctxSamples: Int
@@ -15,8 +15,8 @@ final class Transcriber {
     /// Lazily-built CPU(fp32) runner, used only on the rare empty-output retry.
     private var cpuRunner: ModelRunner?
 
-    init(runner: ModelRunner, tokenizer: ParakeetTokenizer, ctxSamples: Int,
-         modelsDir: URL, primaryIsCPU: Bool) {
+    public init(runner: ModelRunner, tokenizer: ParakeetTokenizer, ctxSamples: Int,
+                modelsDir: URL, primaryIsCPU: Bool) {
         self.runner = runner
         self.tokenizer = tokenizer
         self.ctxSamples = ctxSamples
@@ -25,7 +25,7 @@ final class Transcriber {
     }
 
     /// Strategy C (recommended): overlapping windows + ONE continuous TDT decode.
-    func transcribe(_ wav: [Float]) throws -> String {
+    public func transcribe(_ wav: [Float]) throws -> String {
         let ids = try decodeStrategyC(wav, with: runner)
 
         // Rare ANE/GPU fp16 collapse: when speech begins softly after leading
@@ -108,7 +108,7 @@ final class Transcriber {
     /// Strategy A (baseline): non-overlapping 15s windows, decode each from blank,
     /// string-join. Kept for comparison (spec §11). Implemented as ctx=0 windows,
     /// each decoded independently as its own stream.
-    func transcribeBaseline(_ wav: [Float]) throws -> String {
+    public func transcribeBaseline(_ wav: [Float]) throws -> String {
         let planner = WindowPlanner(ctxSamples: 0)         // center == full window
         let encoder = Encoder(runner: runner, planner: planner)
         let decoder = TdtDecoder(runner: runner)

@@ -9,10 +9,10 @@ import Foundation
 /// decoder, and any id ≥ vocabSize is ignored here as a defensive guard — see
 /// docs/swift-port-spec.md §1.2 (FluidAudio's dump appends spurious word-pieces at
 /// 1024…1030, where 1024 == blank would otherwise render as "▁warming").
-struct ParakeetTokenizer {
+public struct ParakeetTokenizer {
     let tokens: [Int: String]
 
-    init(contentsOf url: URL) throws {
+    public init(contentsOf url: URL) throws {
         let data = try Data(contentsOf: url)
         let raw = (try JSONSerialization.jsonObject(with: data)) as? [String: Any] ?? [:]
         var map: [Int: String] = [:]
@@ -25,7 +25,7 @@ struct ParakeetTokenizer {
         tokens = map
     }
 
-    func text(for ids: [Int]) -> String {
+    public func text(for ids: [Int]) -> String {
         var pieces: [String] = []
         pieces.reserveCapacity(ids.count + 4)
         for id in ids {

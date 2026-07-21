@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
+import ParakeetCore
 
 struct TranscriptionView: View {
     @EnvironmentObject private var engine: TranscriptionEngine

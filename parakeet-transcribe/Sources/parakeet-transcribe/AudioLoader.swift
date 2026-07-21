@@ -1,5 +1,6 @@
 import AVFoundation
 import Foundation
+import ParakeetCore
 
 enum AudioError: Error, CustomStringConvertible {
     case open(String)

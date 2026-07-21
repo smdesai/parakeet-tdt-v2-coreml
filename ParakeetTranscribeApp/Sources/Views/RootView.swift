@@ -1,4 +1,5 @@
 import SwiftUI
+import ParakeetDownload
 
 struct RootView: View {
     @EnvironmentObject private var engine: TranscriptionEngine
