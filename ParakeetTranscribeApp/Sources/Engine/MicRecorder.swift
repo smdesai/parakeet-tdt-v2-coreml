@@ -1,5 +1,6 @@
 import AVFoundation
 import Foundation
+import ParakeetCore
 
 /// Captures microphone audio as a stream of mono Float32 chunks at the model
 /// sample rate (16 kHz). Each tap buffer is resampled and yielded immediately so

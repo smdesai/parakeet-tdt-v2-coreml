@@ -21,7 +21,7 @@
 //
 
 import XCTest
-@testable import ParakeetTranscribe
+@testable import ParakeetDownload
 
 final class ModelDownloaderTests: XCTestCase {
 

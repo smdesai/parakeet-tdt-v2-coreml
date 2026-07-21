@@ -1,6 +1,8 @@
 import CoreML
 import Foundation
 import SwiftUI
+import ParakeetCore
+import ParakeetDownload
 
 /// Drives the bundled Parakeet-TDT-v2 CoreML pipeline behind a SwiftUI-friendly
 /// ObservableObject. Two entry points:

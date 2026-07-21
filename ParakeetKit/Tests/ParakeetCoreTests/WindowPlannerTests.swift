@@ -1,5 +1,5 @@
 import XCTest
-@testable import parakeet_transcribe
+@testable import ParakeetCore
 
 final class WindowPlannerTests: XCTestCase {
     let sr = Const.sampleRate

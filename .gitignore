@@ -20,6 +20,8 @@ parakeet_coreml_v2_final/
 .DS_Store
 parakeet-transcribe/.build/
 parakeet-transcribe/.swiftpm/
+ParakeetKit/.swiftpm/
+ParakeetTranscribeApp/.build-xcode/
 # Bundled CoreML models staged into the iOS app (~585MB); staged by scripts/stage-models.sh
 ParakeetTranscribeApp/Resources/Models/
 ParakeetTranscribeApp/DerivedData/
