@@ -18,6 +18,11 @@ import PackageDescription
 // Deployment floors match the two consumers: iOS 17 / macOS 14 (the CoreML
 // fixed-shape models require iOS17+/macOS14+; the app itself targets a higher iOS
 // but nothing here needs it).
+//
+// This manifest lives at the REPOSITORY ROOT so the package can be consumed as a
+// git dependency (SwiftPM requires a root Package.swift); the Swift sources and
+// tests stay under ParakeetKit/. In-repo consumers reference it as
+// `.package(name: "ParakeetKit", path: "..")`.
 let package = Package(
     name: "ParakeetKit",
     platforms: [
@@ -29,9 +34,13 @@ let package = Package(
         .library(name: "ParakeetDownload", targets: ["ParakeetDownload"]),
     ],
     targets: [
-        .target(name: "ParakeetCore"),
-        .target(name: "ParakeetDownload"),
-        .testTarget(name: "ParakeetCoreTests", dependencies: ["ParakeetCore"]),
-        .testTarget(name: "ParakeetDownloadTests", dependencies: ["ParakeetDownload"]),
+        .target(name: "ParakeetCore", path: "ParakeetKit/Sources/ParakeetCore"),
+        .target(name: "ParakeetDownload", path: "ParakeetKit/Sources/ParakeetDownload"),
+        .testTarget(
+            name: "ParakeetCoreTests", dependencies: ["ParakeetCore"],
+            path: "ParakeetKit/Tests/ParakeetCoreTests"),
+        .testTarget(
+            name: "ParakeetDownloadTests", dependencies: ["ParakeetDownload"],
+            path: "ParakeetKit/Tests/ParakeetDownloadTests"),
     ]
 )
