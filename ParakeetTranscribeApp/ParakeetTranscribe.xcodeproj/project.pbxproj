@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13064D5109668394B7674761 /* TranscriptionView.swift~ in Resources */ = {isa = PBXBuildFile; fileRef = 0420067E5D486D6434C336DC /* TranscriptionView.swift~ */; };
 		25579C35B683C4722CCE72A6 /* ParakeetDownload in Frameworks */ = {isa = PBXBuildFile; productRef = C3A958B2076BD609C80AFB7B /* ParakeetDownload */; };
 		3C7F0F4CECBAEE98CBCC31A9 /* ParakeetCore in Frameworks */ = {isa = PBXBuildFile; productRef = 82F64033A2767A6257928190 /* ParakeetCore */; };
 		5D70FD048789F16D527C435A /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E460BBEBB473F10A6C8E00E /* WaveformView.swift */; };
@@ -22,17 +21,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0420067E5D486D6434C336DC /* TranscriptionView.swift~ */ = {isa = PBXFileReference; path = "TranscriptionView.swift~"; sourceTree = "<group>"; };
 		0788EA171105E9C64E8DF062 /* TranscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionView.swift; sourceTree = "<group>"; };
 		145A65A7EA22425583D58AAA /* ParakeetTranscribe.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ParakeetTranscribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C9E0F413CAA53E0387497 /* ParakeetTranscribeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParakeetTranscribeApp.swift; sourceTree = "<group>"; };
 		29FB841B6DDAFEDDB2CFA1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309E3A8BAF90A958651AC2F7 /* AudioFileSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSamples.swift; sourceTree = "<group>"; };
-		56E5E31B81C11E46AE4DCE3D /* ParakeetKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ParakeetKit; path = ../ParakeetKit; sourceTree = SOURCE_ROOT; };
 		68B1A2DCD26E742234419B54 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		70697E2262FBD94D6826390A /* TranscriptionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionEngine.swift; sourceTree = "<group>"; };
 		84669B1944E333E76472F35F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9E460BBEBB473F10A6C8E00E /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		AB11960D33B876C8E85DA060 /* parakeet-tdt-v2-coreml */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "parakeet-tdt-v2-coreml"; path = ..; sourceTree = SOURCE_ROOT; };
 		C2711D67074DBB229A4BB6A8 /* MicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +88,6 @@
 			children = (
 				68B1A2DCD26E742234419B54 /* RootView.swift */,
 				0788EA171105E9C64E8DF062 /* TranscriptionView.swift */,
-				0420067E5D486D6434C336DC /* TranscriptionView.swift~ */,
 				0BE36ED72C2E2829B65297A9 /* Components */,
 			);
 			path = Views;
@@ -115,23 +112,15 @@
 		5F12FF9D3747302F5A46FC60 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				56E5E31B81C11E46AE4DCE3D /* ParakeetKit */,
+				AB11960D33B876C8E85DA060 /* parakeet-tdt-v2-coreml */,
 			);
 			name = Packages;
-			sourceTree = "<group>";
-		};
-		BD7CB1E7F07455E51B6BAEAF /* Core */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		C55AD78DB1272484E079AA38 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				10BD795BB14DB68B0F43F284 /* App */,
-				BD7CB1E7F07455E51B6BAEAF /* Core */,
 				0F20178DF700E33FBEA49D3D /* Engine */,
 				56C48330A3765BDC7D6C70F9 /* Theme */,
 				4F8A158C16F3047B68FD4843 /* Views */,
@@ -197,7 +186,7 @@
 			mainGroup = 0561E9E593C3B548DCF70ABD;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				84581796A6F3F7C4476B48E2 /* XCLocalSwiftPackageReference "../ParakeetKit" */,
+				118C79F0F87C6D0BA6141887 /* XCLocalSwiftPackageReference ".." */,
 			);
 			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
@@ -214,7 +203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D736B2CFF0CAA1E77F653619 /* Assets.xcassets in Resources */,
-				13064D5109668394B7674761 /* TranscriptionView.swift~ in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,9 +422,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		84581796A6F3F7C4476B48E2 /* XCLocalSwiftPackageReference "../ParakeetKit" */ = {
+		118C79F0F87C6D0BA6141887 /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../ParakeetKit;
+			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
 

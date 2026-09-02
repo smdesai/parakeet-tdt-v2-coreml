@@ -16,12 +16,13 @@ settings:
     # `xcodegen generate`.
     DEVELOPMENT_TEAM: TA92TEWDS4
 
-# The transcription core + Hugging Face downloader live in the local ParakeetKit
-# SPM package (repo-root sibling), shared verbatim with the parakeet-transcribe
-# CLI so there is a single source of truth. Consumed by relative path.
+# The transcription core + Hugging Face downloader live in the ParakeetKit SPM
+# package whose manifest sits at the repository root (sources under ParakeetKit/),
+# shared verbatim with the parakeet-transcribe CLI so there is a single source of
+# truth. Consumed by relative path to the repo root.
 packages:
   ParakeetKit:
-    path: ../ParakeetKit
+    path: ..
 
 targets:
   ParakeetTranscribe:

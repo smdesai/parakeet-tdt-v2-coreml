@@ -9,7 +9,7 @@ let package = Package(
     dependencies: [
         // The transcription core lives in the sibling ParakeetKit package, shared
         // with the iOS app. Consumed by local path (single source of truth).
-        .package(path: "../ParakeetKit"),
+        .package(name: "ParakeetKit", path: ".."),  // repo root hosts the ParakeetKit manifest
     ],
     targets: [
         .executableTarget(
